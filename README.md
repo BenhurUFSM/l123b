@@ -71,19 +71,3 @@ Os assuntos vistos em aula serão listados aqui.
 | ----: | -------: | :-----------
 |    E0 | sem      | tem exercícios no final do texto da aulas 1
 
-
-## Material Auxiliar
-
-[Apostila de C da UFPR](http://www.inf.ufpr.br/cursos/ci067/Docs/NotasAula.pdf)
-
-[Curso de programação C da UFMG](http://www2.dcc.ufmg.br/disciplinas/pc/source/introducao_c_renatocm_deeufmg.pdf)
-
-[Apostila de programação da UFPR](https://www.inf.ufpr.br/marcos/livro_alg1/livro_alg1.pdf)
-
-Ajude o robozinho a iluminar o mundo (ajuda no desenvolvimento de lógica de programação, fundamental para o conteúdo da disciplina) [lightbot](http://lightbot.com).
-
-Ajude o passarinho a detonar o porco (semelhante ao anterior) [code.org](http://studio.code.org/hoc/1)
-
-Os grupos PET geralmente oferecem tópicos de apoio a disciplinas iniciais.
-
-
