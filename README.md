@@ -1,5 +1,5 @@
 # l123b
-Laboratório 1 de Programação, segundo semestre de 2023
+Laboratório de Programação I, segundo semestre de 2023
 
 ELC1065 DLSC/CT/UFSM\
 professor: Benhur Stein 
@@ -19,7 +19,7 @@ O e-mail pode ser usado para o envio de perguntas, exercícios, reclamações, s
 
 Esta página concentrará os assuntos vistos em aula, a descrição de exercícios e trabalhos, avaliações, etc. Ela estará sendo aumentada/atualizada durante todo o semestre. Ela é o canal mais oficial de informações sobre a disciplina. Todos os alunos devem olhar o que está aqui periodicamente (recomendo descobrir como se habilita notificações).
 
-A disciplina de Laboratório I de Programação é bastante prática, e exige que os alunos se dediquem bastante e desenvolvam trabalhos práticos.
+A disciplina de Laboratório de Programação I é bastante prática, e exige que os alunos se dediquem bastante e desenvolvam trabalhos práticos.
 O objetivo da disciplina, aprender a programar computadores, envolve conceitos que podem levar um tempo razoável para serem adquiridos.
 A prática de programação tem se mostrado essencial nesse aprendizado.
 Para realizar essa prática, é necessário acesso a um computador e a um ambiente de desenvolvimento de programas.
@@ -30,7 +30,7 @@ Use os canais de comunicação com o professor para sanar dúvidas.
 Em um computador pessoal, pode-se instalar um ambiente de desenvolvimento localmente ou usar um dos vários que existem gratuitamente online.
 O que se necessita como ambiente de desenvolvimento para a disciplina é o mais básico, basta um editor de textos e um compilador da linguagem "C".
 Exemplos de ambiente gratuito online: [replit](https://www.replit.com), [onlineGDB](https://www.onlinegdb.com).
-Os exercícios e trabalhos da disciplinas podem ser desenvolvidos nesses ambientes.
+Os exercícios e trabalhos da disciplinas podem ser desenvolvidos nesses ambientes, mas geralmente é menos confortável que usar localmente.
 
 Meu ambiente pessoal de trabalho é no sistema linux, e é nesse ambiente que vou avaliar os trabalhos dos alunos.
 Não tenho nenhuma experiência pessoal gratificante com windows, não vou poder auxiliá-lo com problemas diretamente relacionados ao uso desse ambiente.
@@ -69,5 +69,5 @@ Os assuntos vistos em aula serão listados aqui.
 
 |     N |    prazo | assunto
 | ----: | -------: | :-----------
-|    E0 | sem      | tem exercícios no final do texto da aulas 1
+|    E0 | -        | tem exercícios no final do texto da aulas 1
 
