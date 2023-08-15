@@ -76,3 +76,6 @@ Um gatão:
 ( o.o )
  > ^ <
 ```
+
+Altere novamente o programa, para que cada desenho seja feito por uma função diferente.
+Faça a função main chamar cada uma das outras, imprimindo nosso conjunto de figurinhas. Para ficar mais legível, coloque uma linha em branco separando um desenho do outro.
