@@ -79,3 +79,6 @@ Um gatão:
 
 Altere novamente o programa, para que cada desenho seja feito por uma função diferente.
 Faça a função main chamar cada uma das outras, imprimindo nosso conjunto de figurinhas. Para ficar mais legível, coloque uma linha em branco separando um desenho do outro.
+
+Envie esse último programa. Anexe-o a um mail e envie para o mail do professor, com o assunto "e1-l1-fulano", substituindo "fulano" pelo seu nome (ou nome e sobrenome se não for único na chamada).
+Não esquece os comentários (linhas que iniciam com //), veja o início desta página.
