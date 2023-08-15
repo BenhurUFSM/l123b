@@ -62,11 +62,12 @@ Os assuntos vistos em aula serão listados aqui.
 | ---: | -----: | :--------
 |    1 |  8ago  | [introdução](Aulas/01.md)
 |    2 |  10ago | [aula prática](Aulas/02.md)
-|    3 |  15ago | primeiro programa C
+|    3 |  15ago | [primeiro programa C](Aulas/03.md)
 
 ## Exercícios, trabalhos, provas
 
 |     N |    prazo | assunto
 | ----: | -------: | :-----------
 |    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
+|    E1 | -        | [rato e gato](Exercicios/e1)
 
