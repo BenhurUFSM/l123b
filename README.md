@@ -69,5 +69,5 @@ Os assuntos vistos em aula serão listados aqui.
 |     N |    prazo | assunto
 | ----: | -------: | :-----------
 |    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
-|    E1 | -        | [rato e gato](Exercicios/e1)
+|    E1 | 16ago    | [rato e gato](Exercicios/e1)
 
