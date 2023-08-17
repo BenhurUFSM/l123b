@@ -63,7 +63,8 @@ Os assuntos vistos em aula serão listados aqui.
 | ---: | -----: | :--------
 |    1 |  8ago  | [introdução](Aulas/01.md)
 |    2 |  10ago | [aula prática](Aulas/02.md)
-|    3 |  15ago | [primeiro programa C](Aulas/03.md)
+|    3 |  15ago | [primeiro programa C, printf, funções](Aulas/03.md)
+|    4 |  17ago | [variáveis](Aulas/04.md)
 
 ## Exercícios, trabalhos, provas
 
