@@ -82,3 +82,95 @@ Faça a função main chamar cada uma das outras, imprimindo nosso conjunto de f
 
 Envie esse último programa. Anexe-o a um mail e envie para o mail do professor, com o assunto "e1-l1-fulano", substituindo "fulano" pelo seu nome (ou nome e sobrenome se não for único na chamada).
 Não esquece os comentários (linhas que iniciam com //), veja o início desta página.
+
+#### Exemplos
+
+Abaixo estão dois exemplos de arquivos recebidos.
+Será que você consegue extrair alguma inspiração para seus próximos programas analisando as diferenças entre esses exemplos?
+
+```c
+// l123b - e1
+// programa para dizer oi
+// Nome Censurado
+// 2023-08-16
+#include <stdio.h>
+
+//função que cria e imprime o ratinho
+void ratinho()
+{
+  printf("\n");
+  printf("<:3)~~~\n");
+  printf("\n");
+} 
+//função que cria e imrpime o gatinho
+void gatinho()
+{
+  printf("=^..^=\n");
+  printf("\n");
+}
+//função que cria e imprime o ratão
+void ratão()
+{
+  printf(" _   _\n");
+  printf("(_)_(_)\n");
+  printf(" (o o)\n");
+  printf("==\\o/==\n");
+  printf("\n");
+}
+//função que cria e imrpime o gatão
+void gatão()
+{
+  printf(" /\\_/\\\n");
+  printf("( o.o )\n");
+  printf(" > ^ <\n");
+  printf("\n");
+}
+int main()
+{
+  printf("Oi,\n");
+  ratinho();    //chamando a função que cria o ratinho
+  gatinho();    //chamando a função que cria o gatinho
+  ratão(); /*chamando a função que cria o ratão*/
+  gatão();  /*chamando a função que cria o gatão*/
+  printf("mundo\n");
+}
+```
+```c
+#include <stdio.h> 
+
+void gato();
+void ratinho();
+void gatinho();
+void ratao();
+
+int main()
+{
+    printf("inicio\n");
+    gato();
+    ratinho();
+    ratao();
+    gatinho();
+    printf("fim/n");
+    return 0;
+}
+
+void gato()
+{
+printf(" /\\_/\\ \n( o.o )\n >ˆ<\n");
+}
+
+void ratinho()
+{
+    printf("<:3--\n");
+}
+
+void gatinho()
+{
+    printf("=ˆ.ˆ=\n");
+}
+
+void ratao()
+{
+    printf("_   _\n (_)_(_)\n  (0 0)\n ==\\o/==\n");
+}
+```
