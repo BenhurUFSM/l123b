@@ -8,7 +8,7 @@ Digite um valor: [10]
 Digite outro valor: [20]
 10 multiplicado por 20 vale 200.
 ```
-Os colchetes servem para delimitar o que é digitado pelo usuário do programa, não faz parte nem da entrada nem da saída do programa.
+O que está entre colchetes é o que é digitado pelo usuário do programa. Os colchetes servem para delimitar o que é digitado pelo usuário, não faz parte nem da entrada nem da saída do programa.
 
 A saída do programa deve ser **exatamente** igual ao mostrado acima.
 
@@ -22,11 +22,11 @@ gcc e2-benhur.c -o e2-benhur
 meld e2-s1 e2-x1
 ```
 - o primeiro comando compila o programa;
-- o segundo comando executa o programa, mas faz com que a entrada dele, em vez de ser lida do teclado, seja lida do arquivo `e2-e1`, e a saída dele, em vez de ser colocada na tela, seja colocada no arquivo e2-x1;
+- o segundo comando executa o programa, mas faz com que a entrada dele, em vez de ser lida do teclado, seja lida do arquivo `e2-e1`, e a saída dele, em vez de ser colocada na tela, seja colocada no arquivo `e2-x1`;
 - o terceiro comando executa `meld`, um comparador de arquivos, que vai comparar a saída esperada (em `e2-s1`) com a saída efetiva (em `e2-x1`). Qualquer diferença entre esses arquivos deve ser investigada e o programa deve ser alterado.
 
 Para que o programa meld funcione, deve ter sido instalado.
 
 Pode usar outros programas de comparação, ou até comparar manualmente.
 
-Tendo comparado ok com os 3 arquivos e estando satisfeito com o seu programa, anexe-o (só o arquivo e2-id.c) em um mail para o endereço da disciplina, com o assunto "l1-e2-id" (id da tabela)
+Tendo comparado ok com os 3 arquivos e estando satisfeito com o seu programa, anexe-o (só o arquivo "e2-id.c") em um mail para o endereço da disciplina, com o assunto "l1-e2-id" (id da tabela).
