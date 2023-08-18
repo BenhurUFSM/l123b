@@ -10,8 +10,7 @@ aluno monitor: Gabriel Bisognin Moro ([gbmoro@inf.ufsm.br](mailto:gbmoro@inf.ufs
 
 ## Planilha de avaliação
 
-A avaliação etc dos alunos será colocada na [planilha]
-(https://docs.google.com/spreadsheets/d/19klCrQyGFX9sVlwNINaQz8MRO1kquNxufTVIpa0xCv0/edit?usp=sharing).
+A avaliação etc dos alunos será colocada na [planilha](https://docs.google.com/spreadsheets/d/19klCrQyGFX9sVlwNINaQz8MRO1kquNxufTVIpa0xCv0/edit?usp=sharing).
 
 ## Desenvolvimento da disciplina
 
