@@ -8,6 +8,11 @@ terças e quintas, 14h30\
 sala 334, prédio 7 (principal do CT)\
 aluno monitor: Gabriel Bisognin Moro ([gbmoro@inf.ufsm.br](mailto:gbmoro@inf.ufsm.br))
 
+## Planilha de avaliação
+
+A avaliação etc dos alunos será colocada na [planilha]
+(https://docs.google.com/spreadsheets/d/19klCrQyGFX9sVlwNINaQz8MRO1kquNxufTVIpa0xCv0/edit?usp=sharing).
+
 ## Desenvolvimento da disciplina
 
 Os canais de comunicação entre o professor e os alunos são:
@@ -72,5 +77,5 @@ Os assuntos vistos em aula serão listados aqui.
 | ----: | -------: | :-----------
 |    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
 |    E1 | 16ago    | [rato e gato](Exercicios/e1)
-|    E2 |          | breve
+|    E2 | 21ago,14h | [multiplicação](Exercicios/e2)
 
