@@ -12,6 +12,13 @@ O que está entre colchetes é o que é digitado pelo usuário do programa. Os c
 
 A saída do programa deve ser **exatamente** igual ao mostrado acima.
 
+>  *Para ser exatamente mesmo, deveria ter sido formatado como abaixo, porque é o usuário que digita o enter, mas fica mais bonito como acima...*
+   ```
+   Digite um valor: [10
+   ]Digite outro valor: [20
+   ]10 multiplicado por 20 vale 200.
+   ```
+
 Chame seu programa de `e2-id.c`, com `id` igual ao que está na planilha de avaliação.
 
 Para facilitar a auto verificação do comportamento do programa, foram disponibilizados três arquivos, `e2-e1`, `e2-e2` e `e2-e3` com 3 entradas para o programa, e outros três arquivos, `e2-s1`, `e2-s2` e `e2-s3` com as saídas esperadas para cada entrada.
