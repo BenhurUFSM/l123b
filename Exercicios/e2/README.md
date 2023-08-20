@@ -40,6 +40,11 @@ Tendo comparado ok com os 3 arquivos e estando satisfeito com o seu programa, an
 
 ### Perguntas respondidas
 
+- **P** E esses colchetes?
+- **R** Os colchetes são só para separar o que são as coisas que o programa escreve e as que o usuário escreve.
+O que tá dentro dos colchetes é escrito pelo usuário, e o que está fora é escrito pelo programa. Os colchetes
+não são escritos por ninguém, eles não existem.
+
 - **P** Gostaria que o senhor me explicasse como fazer a segunda parte de verificação do arquivo com o meld, pois não consegui realizar o procedimento pelo o mesmo.
 - **R** Normalmente, a execução do teu programa seria:
   ```sh
