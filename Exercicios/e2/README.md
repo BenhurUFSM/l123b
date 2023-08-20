@@ -40,8 +40,8 @@ Tendo comparado ok com os 3 arquivos e estando satisfeito com o seu programa, an
 
 ### Perguntas respondidas
 
-- Gostaria que o senhor me explicasse como fazer a segunda parte de verificação do arquivo com o meld, pois não consegui realizar o procedimento pelo o mesmo.
-- Normalmente, a execução do teu programa seria:
+- **P** Gostaria que o senhor me explicasse como fazer a segunda parte de verificação do arquivo com o meld, pois não consegui realizar o procedimento pelo o mesmo.
+- **R** Normalmente, a execução do teu programa seria:
   ```sh
   ./e2-id
   ```
