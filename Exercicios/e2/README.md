@@ -37,3 +37,30 @@ Para que o programa meld funcione, deve ter sido instalado.
 Pode usar outros programas de comparação, ou até comparar manualmente.
 
 Tendo comparado ok com os 3 arquivos e estando satisfeito com o seu programa, anexe-o (só o arquivo "e2-id.c") em um mail para o endereço da disciplina, com o assunto "l1-e2-id" (id da tabela).
+
+### Perguntas respondidas
+
+- Gostaria que o senhor me explicasse como fazer a segunda parte de verificação do arquivo com o meld, pois não consegui realizar o procedimento pelo o mesmo.
+- Normalmente, a execução do teu programa seria:
+  ```sh
+  ./e2-id
+  ```
+  e então o programa apresenta a saída dele e tu digita a entrada.
+
+  A forma de fazer o teste com os arquivos é, em vez de executar dessa forma, executar, para o primeiro conjunto de arquivos, assim:
+  ```sh
+  ./e2-id < e2-e1 > e2-x1
+  ```
+  executando dessa forma, o que o programa escrever vai ser colocado no arquivo `e2-x1` e não na tela; e quando o programa ler alguma coisa, em vez de esperar digitar no teclado, pega no arquivo `e2-e1`.
+  O programa vai executar até terminar sem aparecer nada na tela e sem parar para digitar alguma coisa.
+
+  No arquivo `e2-s1` eu coloquei qual seria a saída do programa quando a entrada for o conteúdo de `e2-e1`.
+  No arquivo `e2-x1` o comando acima colocou a saída do teu programa quando a entrada foi o conteúdo de `e2-e1`.
+  Esses 2 arquivos devem estar iguais, ou o teu programa não tem a saída igual ao que deveria ter.
+  O programa `meld` compara 2 arquivos, e diz se são iguais ou onde estão as diferenças.
+  Executa assim:
+  ```
+  meld e2-s1 e2-x1
+  ```
+  Para o segundo conjunto, substitui `e2-e1`, `e2-x1` e `e2-s1` por `e2-e2`, `e2-x2` e `e2-s2`.
+  
