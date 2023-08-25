@@ -70,6 +70,8 @@ Os assuntos vistos em aula serão listados aqui.
 |    3 |  15ago | [primeiro programa C, printf, funções](Aulas/03.md)
 |    4 |  17ago | [variáveis](Aulas/04.md)
 |    5 |  22ago | [tipos de dados](Aulas/05.md)
+|    6 |  24ago | [if](Aulas/06.md)
+|    7 |  29ago | Revisão (para quem quiser, e especialmente para os novos ingressantes) (todos vão receber presença)
 
 ## Exercícios, trabalhos, provas
 
@@ -78,4 +80,5 @@ Os assuntos vistos em aula serão listados aqui.
 |    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
 |    E1 | 16ago    | [rato e gato](Exercicios/e1)
 |    E2 | 21ago,14h | [multiplicação](Exercicios/e2)
+|    E3 | agosto   | ex. 2 no final da aula 6; entrega como os anteriores
 
