@@ -80,5 +80,5 @@ Os assuntos vistos em aula serão listados aqui.
 |    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
 |    E1 | 16ago    | [rato e gato](Exercicios/e1)
 |    E2 | 21ago,14h | [multiplicação](Exercicios/e2)
-|    E3 | agosto   | ex. 2 no final da aula 6; entrega como os anteriores
+|    E3 | 29ago (30 pros novos)   | ex. 2 no final da aula 6; entrega como os anteriores
 
