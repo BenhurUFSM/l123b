@@ -55,7 +55,7 @@ Exemplo de formatação:
    int main()
    {
      int valor = le_numero();
-     printf("O dobro de %d é %d\n", valor, dobro(valor));
+     printf("O dobro de %d é %d\n", valor, posdobro(valor));
    }
 
    int le_numero()
