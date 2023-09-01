@@ -2,11 +2,11 @@
 
 Veja a descrição no final da aula 8.
 
-Os arquivos e4-e* contêm exemplos de entrada para o programa, e os arquivos e4-s* a saída esperada para cada entrada. Pode usar o método explicado no e2 para usar esses arquivos.
+Os arquivos `e4-e*` contêm exemplos de entrada para o programa, e os arquivos `e4-s*` a saída esperada para cada entrada. Na descrição do `e2` tem dicas de como usar esses arquivos.
 
-O arquivo contendo o programa deve se chamar e4-id.c (substituindo id pelo que está na planilha, e4-ana.c, por exemplo), e deve ser formatado como descrito abaixo.
+O arquivo contendo o programa deve se chamar `e4-id.c` (substituindo `id` pelo que está na planilha: `e4-ana.c`, por exemplo), e deve ser formatado como descrito abaixo.
 
-Após testar com os exemplos fornecidos, anexe o arquivo .c em um email com o assunto "l1-e4-ana" (se seu id for ana) e envie para o endereço da disciplina (benhur+l123b@inf.ufsm.br).
+Após testar com os exemplos fornecidos, anexe o arquivo .c em um email com o assunto `l1-e4-ana` (se seu id for ana) e envie para o endereço da disciplina (benhur+l123b@inf.ufsm.br).
 
 ### Formatação do arquivo C
 
