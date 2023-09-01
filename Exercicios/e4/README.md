@@ -30,7 +30,7 @@ O `(` de funções são encostados no nome da função (`printf("oi")` e não `p
 
 O `(` de um comando é separado do comando por um espaço (`if (a < v)` e não `if(a < v)`).
 
-Depois do `(` e antes do `)` não tem espaço.
+Logo depois do `(` e logo antes do `)` não tem espaço (`if (a < v)` e não `if ( a < v )`).
 
 Operadores unários encostam no seu operando, mas são separados por um espaço de algo que não seja seu operando (`a * -b` e não `a * - b` nem `a*-b`).
 
