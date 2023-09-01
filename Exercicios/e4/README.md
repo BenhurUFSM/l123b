@@ -24,7 +24,7 @@ As demais chaves (as que delimitam os comandos controlados por outro comando, co
 - o `{` é o último caractere da linha que contém o comando, logo após o `)`, com um espaço entre eles;
 - o `}` fica sozinho em uma linha, na mesma coluna em que inicia o comando a que as chaves pertencem (na mesma coluna do i do if, por exemplo).
 
-As linhas que estão dentro de chaves iniciam 2 colunas além da coluna que contém o fecha chaves correspondente.
+As linhas que estão dentro de chaves iniciam 2 colunas além da coluna que contém o fecha chaves correspondente (as linhas que contém comandos controlados por outro são indentadas 2 espaços a mais que o comando que as controla).
 
 O `(` de funções são encostados no nome da função (`printf("oi")` e não `printf ("oi");`).
 
