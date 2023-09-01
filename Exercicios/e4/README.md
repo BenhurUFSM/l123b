@@ -20,7 +20,7 @@ O Arquivo deve ser composto por (nessa ordem):
 
 As chaves do corpo de uma função são colocadas em linhas sozinhas, na primeira coluna.
 
-As demais chaves (delimitam os comandos controlados por outro comando, como if):
+As demais chaves (as que delimitam os comandos controlados por outro comando, como if):
 - o `{` é o último caractere da linha que contém o comando, logo após o `)`, com um espaço entre eles;
 - o `}` fica sozinho em uma linha, na mesma coluna em que inicia o comando a que as chaves pertencem (na mesma coluna do i do if, por exemplo).
 
