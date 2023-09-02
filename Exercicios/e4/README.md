@@ -50,38 +50,38 @@ Vírgula e `;` tem um espaço depois (se não estiver no final da linha), mas n�
 
 Exemplo de formatação:
 ```c
-   // l123b - exemplo
-   // programa para imprimir o dobro de um número
-   // Benhur Stein
-   // 2023-09-01
+// l123b - exemplo
+// programa para imprimir o dobro de um número
+// Benhur Stein
+// 2023-09-01
 
-   #include <stdio.h>
+#include <stdio.h>
 
-   // solicita um número ao usuário; retorna o número digitado
-   int le_numero();
-   // retorna o dobro positivo do número recebido
-   int posdobro(int num);
+// solicita um número ao usuário; retorna o número digitado
+int le_numero();
+// retorna o dobro positivo do número recebido
+int posdobro(int num);
 
-   int main()
-   {
-     int valor = le_numero();
-     printf("O dobro de %d é %d\n", valor, posdobro(valor));
-   }
+int main()
+{
+  int valor = le_numero();
+  printf("O dobro de %d é %d\n", valor, posdobro(valor));
+}
 
-   int le_numero()
-   {
-     int num;
-     printf("Digite um número: ");
-     scanf("%d", &num);
-     return num;
-   }
+int le_numero()
+{
+  int num;
+  printf("Digite um número: ");
+  scanf("%d", &num);
+  return num;
+}
 
-   int posdobro(int num)
-   {
-     int r = num * 2;
-     if (r < 0) {
-       r = -r;
-     }
-     return r;
-   }
+int posdobro(int num)
+{
+  int r = num * 2;
+  if (r < 0) {
+    r = -r;
+  }
+  return r;
+}
 ```
