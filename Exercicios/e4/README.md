@@ -30,6 +30,8 @@ As demais chaves (as que delimitam os comandos controlados por outro comando, co
   
    `} else if (...) {`
 
+  Todos os `}` de um conjunto de ifs aninhados são colocados na mesma coluna.
+
 As linhas que estão dentro de chaves iniciam 2 colunas além da coluna que contém o fecha chaves correspondente (as linhas que contém comandos controlados por outro são indentadas 2 espaços a mais que o comando que as controla).
 
 O `(` de funções são encostados no nome da função (`printf("oi")` e não `printf ("oi");`).
