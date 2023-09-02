@@ -18,12 +18,14 @@ O Arquivo deve ser composto por (nessa ordem):
 - linhas com declarações das funções contidas no arquivo (exceto main), cada uma precedida por uma linha de comentário dizendo o que faz
 - as definições das funções, cada uma precedida por uma linha em branco
 
+Tudo o que está fora de chaves inicia na coluna 1.
+
 As chaves do corpo de uma função são colocadas em linhas sozinhas, na primeira coluna.
 
 As demais chaves (as que delimitam os comandos controlados por outro comando, como if):
 - o `{` é o último caractere da linha que contém o comando, logo após o `)`, com um espaço entre eles;
 - o `}` fica sozinho em uma linha, na mesma coluna em que inicia o comando a que as chaves pertencem (na mesma coluna do i do if, por exemplo).
-- no caso da cláusula `else`, a chave que fecha o if e a que abre o else devem estar na mesma linha:
+- no caso da cláusula `else`, a chave que fecha o if e a que abre o else devem estar na mesma linha, separadas do else por um espaço:
   
    `} else {`
 - no caso de ifs aninhados para implementar seleção múltipla, o else if deve ser colocado na mesma linha:
@@ -32,7 +34,7 @@ As demais chaves (as que delimitam os comandos controlados por outro comando, co
 
   Todos os `}` de um conjunto de ifs aninhados são colocados na mesma coluna.
 
-As linhas que estão dentro de chaves iniciam 2 colunas além da coluna que contém o fecha chaves correspondente (as linhas que contém comandos controlados por outro são indentadas 2 espaços a mais que o comando que as controla).
+As linhas que estão dentro de chaves iniciam 2 colunas além da coluna que contém o fecha chaves correspondente (as linhas que contém comandos controlados por outro são indentadas 2 espaços a mais que o comando que as controla). Caso prefira, pode indentar com 4 espaços em vez de 2 (mas não mistura!).
 
 O `(` de funções são encostados no nome da função (`printf("oi")` e não `printf ("oi");`).
 
