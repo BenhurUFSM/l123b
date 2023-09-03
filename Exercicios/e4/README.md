@@ -85,7 +85,7 @@ int posdobro(int num)
   return r;
 }
 ```
-Exemplo de formatação, adicionado de comentários com `///` para tentar clarificar:
+Mesmo exemplo acima, adicionado de comentários com `///` para tentar clarificar:
 ```c
 /// o programa começa com 4 linhas do comentário de identificação
 // l123b - exemplo
