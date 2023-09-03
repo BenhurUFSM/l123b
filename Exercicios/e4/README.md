@@ -134,6 +134,7 @@ int posdobro(int num)
   if (r < 0) {
 /// o comando abaixo tá dentro de duas chaves, indenta 2 vezes (4 espaços)
     r = -r;
+/// o '}' do if, tá na mesma coluna do 'i' do 'if'
   }
   return r;
 }
