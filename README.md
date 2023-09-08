@@ -73,6 +73,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    6 |  24ago | [if](Aulas/06.md)
 |    7 |  29ago | Revisão (para quem quiser, e especialmente para os novos ingressantes) (todos vão receber presença)
 |    8 |  31ago | [ifs aninhados, argumentos em funções, e4](Aulas/08.md)
+|    9 |   5set | [while](Aulas/09.md)
 
 ## Exercícios, trabalhos, provas
 
