@@ -75,8 +75,8 @@ Os assuntos vistos em aula serão listados aqui.
 |    8 |  31ago | [ifs aninhados, argumentos em funções, e4](Aulas/08.md)
 |    9 |   5set | [while](Aulas/09.md)
 |   10 |  12set | [for, break, continue, bool](Aulas/10.md)
-|   11 |  14set | [exercícios](Aulas/10.md)
-|   12 |  19set | exercícios, com prêmio
+|   11 |  14set | [exercícios](Aulas/11.md)
+|   12 |  19set | [exercícios, com prêmio](Aulas/12.md)
 
 ## Exercícios, trabalhos, provas
 
