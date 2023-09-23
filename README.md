@@ -77,6 +77,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   10 |  12set | [for, break, continue, bool](Aulas/10.md)
 |   11 |  14set | [exercícios](Aulas/11.md)
 |   12 |  19set | [exercícios, com prêmio](Aulas/12.md)
+|   13 |  21set | [vetores](Aulas/13.md)
 
 ## Exercícios, trabalhos, provas
 
