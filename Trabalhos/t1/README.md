@@ -14,7 +14,10 @@ Ao final de uma partida, o programa pergunta se o jogador deseja jogar novamente
 
 O programa obrigatoriamente tem as duas funções abaixo:
 
-- `acha_num` recebe um vetor (com seu tamanho) e um número, e retorna o índice do vetor onde esse número está. Caso o vetor não tenha esse número, a função retorna -1.
+- `acha_num` recebe um vetor (com seu tamanho) e um número, e retorna o índice do vetor onde esse número está. Caso o vetor não tenha esse número, a função retorna -1. Exemplos:
+   - `[61 12 5 7 78] 5` deve retornar `2`
+   - `[61 12 5 7 78] 1` deve retornar `-1`
+   - `[61 12 5 7 78 12] 12` deve retornar `1`
 - `remove_pos` recebe um vetor (com seu tamanho) e um índice, e desloca os valores do vetor de forma que o valor nesse índice fique no final do vetor, os valores antes desse índice fiquem onde estão e os demais ocupem o índice imediatamente anterior, conforme os exemplos:
    - `[61 12 5 7 78] 2` é alterado para `[61 12 7 78 5]`
    - `[0 1 2] 0` é alterado para `[1 2 0]`
