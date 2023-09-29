@@ -79,6 +79,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   12 |  19set | [exercícios, com prêmio](Aulas/12.md)
 |   13 |  21set | [vetores](Aulas/13.md)
 |   14 |  26set | exercícios com vetores
+|   15 |  28set | [exercícios com vetores](Aulas/15.md)
 
 ## Exercícios, trabalhos, provas
 
