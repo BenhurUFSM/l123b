@@ -8,3 +8,14 @@ Altere o t1 para processar letras em vez de números:
 - O sorteio de valores a colocar no vetor deve sortear letras minúsculas. O númere de letras a sortear deve ser aleatório, entre o mínimo de uma e o máximo que couber no vetor. As letras sorteadas devem formar uma string no vetor
 - o nome de algumas funções deve ser trocado para refletir o fato de que não mais manipulam números.
 
+### parte II
+
+Vetor de palavras
+
+*descrição ainda não disponível*
+
+### parte III
+
+Melhorias na interface
+
+*descrição ainda não disponível*
