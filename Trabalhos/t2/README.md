@@ -10,11 +10,17 @@ Altere o t1 para processar letras em vez de números:
 
 ### parte II
 
-Vetor de palavras
+Só primeira letra; leitura de caracteres individuais
 
 *descrição ainda não disponível*
 
 ### parte III
+
+Vetor de palavras
+
+*descrição ainda não disponível*
+
+### parte IV
 
 Melhorias na interface
 
