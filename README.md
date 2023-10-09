@@ -85,13 +85,13 @@ Os assuntos vistos em aula serão listados aqui.
 
 ## Exercícios, trabalhos, provas
 
-|     N |    prazo | assunto
-| ----: | -------: | :-----------
-|    E0 | -        | tem exercícios no final do texto das aulas 1 e 2
-|    E1 | 16ago    | [rato e gato](Exercicios/e1)
+|     N |     prazo | assunto
+| ----: | --------: | :-----------
+|    E0 | -         | tem exercícios no final do texto das aulas 1 e 2
+|    E1 | 16ago     | [rato e gato](Exercicios/e1)
 |    E2 | 21ago,14h | [multiplicação](Exercicios/e2)
-|    E3 | 29ago (30 pros novos)   | ex. 2 no final da aula 6; entrega como os anteriores
-|    E4 | 5set | [impressão de números](Exercicios/e4)
-|    T1 | 3out,12h | [digitação de números](Trabalhos/t1)
-|    T2 |          | [digitação de letras](Trabalhos/t2)
+|    E3 | 29ago     | ex. 2 no final da aula 6; entrega como os anteriores
+|    E4 | 5set      | [impressão de números](Exercicios/e4)
+|    T1 | 3out,12h  | [digitação de números](Trabalhos/t1)
+|    T2 |           | [digitação de letras](Trabalhos/t2)
 
