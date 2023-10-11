@@ -12,7 +12,7 @@ Altere o t1 para processar letras em vez de números:
 
 Altere novamente o programa. Agora não é necessário encontrar a letra dentro da string, o usuário deve digitar a primeira letra da string. Caso ele digite uma letra diferente, nada acontece.
 
-Os arquivos `tecla.h` e tecla.c` implementam uma forma de se ler uma letra por vez, sem que o programa precise esperar pelo `enter`. O arquivo `testa_tecla.c` exemplifica seu uso. Para compilar, deve-se informar ao compilador o nome dos dois `.c` que formarão o programa:
+Os arquivos `tecla.h` e `tecla.c` implementam uma forma de se ler uma letra por vez, sem que o programa precise esperar pelo `enter`. O arquivo `testa_tecla.c` exemplifica seu uso. Para compilar, deve-se informar ao compilador o nome dos dois `.c` que formarão o programa:
 ```
 gcc -o teste_tecla teste_tecla.c tecla.c
 ```
