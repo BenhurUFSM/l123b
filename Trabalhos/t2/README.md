@@ -40,3 +40,38 @@ Após cada letra digitada, o programa deve imprimir todas as palavras do vetor. 
 Melhorias na interface
 
 *descrição ainda não disponível*
+
+
+#### Respostas a perguntas
+
+
+1. Agora tem um conjunto de palavras (um vetor de palavras, implementado em uma matriz de letras). As várias palavras do vetor devem ser preenchidas chamando a função de sorteio para cada palavra. **Dúvidas**: Isso significa que cada linha vai conter uma palavra, correto? Quantas palavras e qual o tamanho máximo?
+
+   Uma matriz de 10x10 char.
+
+2. O programa deve manter uma variável que representa a palavra selecionada (um índice no vetor de palavras). Pode não existir nenhuma palavra selecionada.
+   **Dúvidas**: É o usuário quem deve selecionar a palavra inicialmente digitando a letra inicial de uma das palavras? Caso a resposta da pergunta anterior seja sim, então o jogo só começa mesmo quando ele acertar uma letra inicial, nesse momento em que digita a letra inicial e seleciona uma palavra, já deve remover a letra inicial dela?
+
+   O jogo começa sem palavra selecionada. O jogador digita uma letra, se
+alguma palavra inicia com essa letra, o jogo seleciona essa palavra
+(ou uma delas se houver mais de uma). O jogo passa então a ter uma
+palavra selecionada. O tempo tá contando desde o início (tempo é para
+a parte 4).
+A letra que foi usada pra selecionar a palavra é removida da palavra.
+
+3. Se existir uma palavra selecionada, o usuário deve digitar a primeira letra dessa palavra, que deve então ser removida da palavra. Se o usuário digitar a última letra da palavra, ela deve ser retirada do vetor, e o programa passa a não ter uma palavra selecionada.
+   **Dúvidas**: O usuário digitar a última letra, no caso, seria a última letra restante da palavra, para removê-la do vetor? Por exemplo 'luiz', se a primeira letra digitada for 'z' devo remover a palavra ou somente após digitar todas as letras dela, l, u, i, z?
+
+   O usuário deve sempre digitar a primeira letra da palavra selecionada.
+Essa letra vai ser removida e a palavra vai ficar mais curta. Se a
+primeira letra for a última, a palavra vai ficar vazia, e deve ser
+removida, o vetor de palavras fica com uma palavra a menos.
+A palavra 'luiz' vai ser selecionada quando for digitado 'l', e vira
+'uiz'. Agora a única letra aceita é 'u', independentemente de quantas
+outras palavras houver, porque tem uma palavra selecionada, e ela
+continua sendo a selecionada até que seja toda digitada.
+
+4. Quando o vetor ficar vazio (o usuário digitou todas as palavras), o programa termina.
+   **Dúvida**: Mas aí ele continua tendo a opção de jogar novamente?
+
+   O programa termina. Talvez na parte 4 tenha a opção de jogar de novo. Mmm, a parte 4 tá ficando muito grande, talvez tenha que ter 4 e 5. 
