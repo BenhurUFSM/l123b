@@ -82,7 +82,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   15 |  28set | [exercícios com vetores](Aulas/15.md)
 |   16 |   3out | [strings](Aulas/16.md)
 |   17 |   5out | [exercícios com strings](Aulas/17.md)
-|   17 |   5out | [Referências (ponteiros)](Aulas/18.md)
+|   18 |  10out | [Referências (ponteiros)](Aulas/18.md)
 
 ## Exercícios, trabalhos, provas
 
