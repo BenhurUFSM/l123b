@@ -83,6 +83,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   16 |   3out | [strings](Aulas/16.md)
 |   17 |   5out | [exercícios com strings](Aulas/17.md)
 |   18 |  10out | [Referências (ponteiros)](Aulas/18.md)
+|   19 |  17out | [Arquivos](Aulas/19.md)
 
 ## Exercícios, trabalhos, provas
 
