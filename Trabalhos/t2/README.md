@@ -20,7 +20,7 @@ Use essas funções no programa das letras.
 
 #### Esclarecimentos
 
-O objetivo das funções em `tecla.c` é realizar a entrada de caracteres do teclado sem precisar esperar pela digitação do 'enter'.
+O objetivo das funções em `tecla.c` é realizar a entrada de caracteres do teclado sem precisar esperar pela digitação do `enter`.
 São 3 funções: `tecla_ini`, `tecla_fim` e `tecla_le_char`.
 Para usar essas funções:
 
