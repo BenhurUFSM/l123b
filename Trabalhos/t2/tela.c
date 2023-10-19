@@ -1,0 +1,115 @@
+#include "tela.h"
+
+// implementado usando
+//   - sequências de escape ANSI para controlar a saída (cursor, cores)
+//   - ioctl para descobrir o tamanho do terminal
+//   - signal para ser sinalizado quando o terminal mudar de tamanho
+//   - clock_gettime para obter o valor do relógio com boa resolução
+
+
+#include <stdio.h>
+#include <stdbool.h>
+
+#include <signal.h>
+#include <time.h>
+#include <sys/ioctl.h>
+
+
+static void tela_altera_modo_saida(void)
+{
+  // faz com que os caracteres impressos sejam enviados diretamente
+  // para a tela, sem serem mantidos em um buffer em memória
+//  setvbuf(stdout, NULL, _IONBF, 0);
+}
+
+void tela_mostra_cursor(bool mostra)
+{
+  if (mostra) {
+    printf("\e[?25h");
+  } else {
+    printf("\e[?25l");
+  }
+}
+
+static void tela_seleciona_tela_alternativa(bool alt)
+{
+  if (alt) {
+    printf("\e[?1049h");
+  } else {
+    printf("\e[?1049l");
+  }
+}
+
+static void tela_le_nlincol(int);
+
+void tela_ini(void)
+{
+  tela_altera_modo_saida();
+  tela_seleciona_tela_alternativa(true);
+  // chama tela_le_nlincol se tela mudar de tamanho
+  signal(SIGWINCH, tela_le_nlincol);
+  tela_le_nlincol(0);
+  tela_limpa();
+  //tela_mostra_cursor(false);
+}
+
+void tela_fim(void)
+{
+  tela_limpa();
+  tela_seleciona_tela_alternativa(false);
+  tela_mostra_cursor(true);
+}
+
+void tela_limpa(void)
+{
+  printf("\e[2J");
+}
+
+void tela_lincol(int lin, int col)
+{
+  printf("\e[%d;%dH", lin, col);
+}
+
+static int nlin, ncol; 
+
+static void tela_le_nlincol(int nada)
+{
+  struct winsize tam;
+  ioctl(1, TIOCGWINSZ, &tam);
+  nlin = tam.ws_row;
+  ncol = tam.ws_col;
+  tela_limpa();
+}
+
+int tela_nlin(void)
+{
+  return nlin;
+}
+
+int tela_ncol(void)
+{
+  return ncol;
+}
+
+void tela_cor_normal(void)
+{
+  printf("\e[m");
+}
+
+void tela_cor_letra(int vermelho, int verde, int azul)
+{
+  printf("\e[38;2;%d;%d;%dm", vermelho, verde, azul);
+}
+
+void tela_cor_fundo(int vermelho, int verde, int azul)
+{
+  printf("\e[48;2;%d;%d;%dm", vermelho, verde, azul);
+}
+
+
+double tela_relogio(void)
+{
+  struct timespec agora;
+  clock_gettime(CLOCK_REALTIME, &agora);
+  return agora.tv_sec + agora.tv_nsec*1e-9;
+}
