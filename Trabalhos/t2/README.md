@@ -18,6 +18,22 @@ gcc -o teste_tecla teste_tecla.c tecla.c
 ```
 Use essas funções no programa das letras.
 
+#### Esclarecimentos
+
+O objetivo das funções em tecla.c é realizar a entrada de caracteres do teclado sem precisar esperar pela digitação do 'enter'.
+São 3 funções: `tecla_ini`, `tecla_fim` e `tecla_le_char`.
+Para usar essas funções:
+
+- Tem que chamar a função `tecla_ini` no início do programa, para poder usar a função `tecla_le_char`.
+
+- A função `tecla_ini` muda a forma como a entrada é processada, podendo confundir o funcionamento de outras funções de entrada. Por isso, não use outras funções de entrada após chamar `tecla_ini`.
+
+- Antes de terminar o programa, chame `tecla_fim`, para reprogramar o processamento normal da entrada.
+
+- A função `tecla_le_char` retorna o próximo caractere digitado, ou `'\0'` se nada tiver sido digitado.
+
+- O programa deve estar preparado para receber `'\0'` como resposta de `tecla_le_char`.
+
 ### parte III
 
 Altere novamente o programa. Agora tem um conjunto de palavras (um vetor de palavras, implementado em uma matriz de letras).
