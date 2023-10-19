@@ -55,6 +55,16 @@ Após cada letra digitada, o programa deve imprimir todas as palavras do vetor. 
 
 ### parte IV
 
+Uso de banco de palavras.
+
+O programa deve ser alterado para, em vez de montar palavras selecionando letras aleatórias, selecionar palavras aleatoriamente de um banco de palavras.
+O banco de palavras deve ser lido de um arquivo, que contém uma palavra por linha.
+
+É fornecido o arquivo `palavras`, que contém 920 palavras, a maior delas é "desenvolvimento".
+Esse arquivo contém palavras acentuadas e palavras com letras maiúsculas, mas nosso programa só reconhece as 26 letras minúsculas. As letras maiúsculas devem ser convertidas para minúsculas. As palavras que não são constituídas só por letras sem acento devem ser ignoradas.
+
+### parte V
+
 Melhorias na interface
 
 *descrição ainda não disponível*
