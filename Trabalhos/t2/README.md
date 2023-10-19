@@ -61,7 +61,7 @@ O programa deve ser alterado para, em vez de montar palavras selecionando letras
 O banco de palavras deve ser lido de um arquivo, que contém uma palavra por linha.
 
 É fornecido o arquivo `palavras`, que contém 920 palavras, a maior delas é "desenvolvimento".
-Esse arquivo contém palavras acentuadas e palavras com letras maiúsculas, mas nosso programa só reconhece as 26 letras minúsculas. As letras maiúsculas devem ser convertidas para minúsculas. As palavras que não são constituídas só por letras sem acento devem ser ignoradas.
+Esse arquivo contém palavras acentuadas e palavras com letras maiúsculas, mas nosso programa só reconhece as 26 letras minúsculas. As letras maiúsculas devem ser convertidas para minúsculas. As palavras que não são constituídas só por letras sem acento devem ser ignoradas. O arquivo não deve ser alterado.
 
 ### parte V
 
