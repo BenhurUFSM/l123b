@@ -71,9 +71,70 @@ Os arquivos `tela.h` e `tela.c` implementam algumas funções que permitem um ma
 
 Use essas funções para melhorar a interface do programa:
 - as palavras devem ser mostradas na parte superior da tela
-- a palavra selecionada deve ser mostrada em 
+- a palavra selecionada deve ser mostrada separada das demais, em uma cor diferente
+- o tempo deve ser calculado usando a função `tela_relogio`
+- o tempo restante deve ser mostrado na tela, em segundos, com um dígito depois da vírgula
 
-*descrição ainda não disponível*
+### parte VI
+
+Interface mais dinâmica
+
+Cada palavra passa a ser mais independente. Associado a cada palavra, tem 3 valores aleatórios:
+- posição horizontal, um número entre 0 e 100 (percentual da linha onde a palavra deve ser colocada)
+- hora de ativação, um número entre 0 e 20 (número de segundos de jogo antes dos quais a palavra não está ativa)
+- tempo para digitação, um número entre 5 e 30 (a palavra deve ser digitada dentro desse prao, depois de ativada)
+
+Não precisa mais mostrar o tempo na tela.
+Cada palavra é mostrada em uma posição que evidencia o prazo que tem para ela ser digitada, quanto menor o prazo, mais para baixo ela aparece.
+
+A posição de uma palavra pode ser calculada assim:
+- *coluna*: `(larg - tam) * pos / 100`
+  - larg: largura da tela
+  - tam: número de caracteres na palavra
+  - pos: posição horizontal percentual da palavra
+- *linha*: `l_ini + alt * t_ativa / t_dig`
+  - l_ini: linha inicial onde aparecem palavras (se reservar alguma linha no topo da tela para outra coisa)
+  - alt: número de linhas onde aparecem as palavras (altura da tela menos linhas usadas para outra coisa no topo e embaixo)
+  - t_ativa: tempo que a palavra está ativa (data atual menos a hora de ativação da palavra)
+  - t_dig: tempo para digitação da palavra
+ 
+A palavra selecionada (se houver) deve ser desenhada por último, em uma cor diferente.
+
+Só devem ser mostradas palavras ativas.
+
+A partida termina quando todas as palavras forem digitadas (não podem restar palavras que ainda não foram ativadas) ou quando o prazo de alguma palavra estourar (o tempo de jogo for superior à hora de ativação mais o tempo de digitação da palavra).
+
+**Dica**
+
+Faça uma função para mostrar a tela, outra para processar a entrada.
+A que mostra a tela só mostra a tela; a que processa a entrada só processa a entrada; nenhuma outra função além dessas deve mostrar algo na tela ou ler a entrada durante uma partida.
+
+### parte VII (última)
+
+Pontuação
+
+O jogo deve calcular os pontos do jogador em uma partida, e manter em um arquivo as 3 maiores pontuações da história, junto com os 3 maiores pontuadores.
+O número de pontos do jogador deve ser mostrado na tela durante a partida.
+
+*Cálculo dos pontos*
+
+Cada letra certa vale entre 1 e 100 pontos, dependendo do tempo entre essa letra e a última letra certa digitada (ou o início da partida, no caso da primeira letra). Se esse tempo for um segundo ou mais, a letra vale um ponto, e aumenta proporcionalmente conforme esse tempo diminui, valendo 100 pontos se o tempo for 0. Em outras palavras, a pontuação de uma letra certa é (`tl` é o tempo desde a letra certa anterior):
+```  
+   se tl >= 1
+     1
+   senão
+     100 * (1 - tl)
+```
+
+Cada letra errada desconta 10 do número de pontos, sem deixar ficar negativo.
+
+Ao final de uma partida, o programa deve mostrar os recordes, e se a pontuação atual fizer jus, pedir uma identificação ao usuário e alterar o recorde de acordo.
+
+Depois de mostrar (e talvez alterar) os recordes, o programa deve perguntar ao usuário se gostaria de uma nova partida, e proceder de acordo com a resposta.
+
+**Dica**
+
+Leia os recordes à partir do arquivo no início do programa, mantenha em memória. No final de uma partida, se os recordes forem alterados, grave o arquivo. Faça uma função para ler o arquivo (que só é chamada uma vez no início de programa) e outra para gravar (que só é chamada no final de uma partida, se a pontuação for alta o suficiente)
 
 
 #### Respostas a perguntas
