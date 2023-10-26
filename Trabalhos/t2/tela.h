@@ -40,6 +40,12 @@ void tela_cor_fundo(int vermelho, int verde, int azul);
 // seleciona se o cursor aparece ou não
 void tela_mostra_cursor(bool mostra);
 
+// para melhorar a apresentação na tela, os dados impressos são
+// mantidos em memória para serem enviados agrupados ao sistema.
+// Esta função deve ser chamada quando for necessário que os dados
+// sejam enviados e efetivamente apareçam
+void tela_atualiza(void);
+
 // retorna o número de segundos desde algum momento no passado
 double tela_relogio(void);
 

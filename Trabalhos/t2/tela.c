@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include <signal.h>
 #include <time.h>
@@ -17,9 +18,10 @@
 
 static void tela_altera_modo_saida(void)
 {
-  // faz com que os caracteres impressos sejam enviados diretamente
-  // para a tela, sem serem mantidos em um buffer em memória
-//  setvbuf(stdout, NULL, _IONBF, 0);
+  // faz com que os caracteres impressos sejam enviados para uma
+  // região de memória antes de serem enviados à tela. Isso melhora
+  // a qualidade de apresentação na tela
+  setbuf(stdout, malloc(BUFSIZ));
 }
 
 void tela_mostra_cursor(bool mostra)
@@ -60,6 +62,12 @@ void tela_fim(void)
   tela_mostra_cursor(true);
 }
 
+void tela_atualiza(void)
+{
+  // envia os dados de saída memorizados para a tela
+  fflush(stdout);
+}
+
 void tela_limpa(void)
 {
   printf("\e[2J");
@@ -75,6 +83,7 @@ static int nlin, ncol;
 static void tela_le_nlincol(int nada)
 {
   struct winsize tam;
+  // pede para o sistema o tamanho da janela de texto
   ioctl(1, TIOCGWINSZ, &tam);
   nlin = tam.ws_row;
   ncol = tam.ws_col;
