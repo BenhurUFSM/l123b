@@ -67,6 +67,12 @@ Esse arquivo contém palavras acentuadas e palavras com letras maiúsculas, mas 
 
 Melhorias na interface
 
+Os arquivos `tela.h` e `tela.c` implementam algumas funções que permitem um maior controle sobre a tela. Essas funções estão documentadas no arquivo `tela.h`, e tem um programa exemplo usando essas funções e as de `tecla.h` no arquivo `testa-tela.c`.
+
+Use essas funções para melhorar a interface do programa:
+- as palavras devem ser mostradas na parte superior da tela
+- a palavra selecionada deve ser mostrada em 
+
 *descrição ainda não disponível*
 
 
