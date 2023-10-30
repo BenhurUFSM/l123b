@@ -170,3 +170,28 @@ continua sendo a selecionada até que seja toda digitada.
    **Dúvida**: Mas aí ele continua tendo a opção de jogar novamente?
 
    O programa termina. Talvez na parte 4 tenha a opção de jogar de novo. Mmm, a parte 4 tá ficando muito grande, talvez tenha que ter 4 e 5. 
+
+5. (Parte V) Não vai mais ter a apresentação do jogo dizendo pra digitar as letras das palavras, vai apenas aparecer as palavras na parte de cima?
+
+   Isso. Se quiser uma tela inicial de explicação, sem problema.
+
+6. (parte V) A palavra selecionada deve ser mostrada destacadamente, como no exemplo de testa-tela.c ou seja, retira-se ela da matriz e mostro apenas na parte de baixo ou mostrar como última palavra entre todas, fazendo parte da matriz, como nas versões anteriores?
+
+   Tanto faz. O ponto é que seja fácil de identificar a palavra que se está digitando.
+ 
+7. (Parte VI) O que seria ativação de uma palavra e palavras ativas?
+
+   Palavras ativas são as que aparecem na tela. O sorteio das palavras é no início da partida, mas nem todas as palavras aparecem no início. Para cada palavra é sorteado também o momento a partir do qual a palavra vai aparecer (vai ser ativa). Enquanto esse momento não chega, é como se essa palavra não existisse (está inativa).
+Na prática, é só não imprimir (nem considerar para ser selecionada) as palavras que têm o tempo de ativação posterior ao tempo atual.
+
+8. (Parte VI) A ordem das palavras é quanto menor o tempo (depois de ativada) mais baixo na matriz ela fica, não preciso mostrar o tempo, mas como o jogador vai saber o tempo que falta? E como vou definir esse tempo pra deixar mais acima ou mais abaixo entre 5 e 30?
+
+   Quanto mais perto está de estourar o tempo de uma palavra, mais baixo ela vai ser mostrada na tela. 
+O jogador sabe do tempo que falta sem ter um número aparecendo porque se uma palavra chegar embaixo ele perde. 
+O tempo de uma palavra também é sorteado junto com a palavra.
+Para cada palavra são sorteadas aleatoriamente 3 coisas: qual a palavra, quando que ela vai ser ativada e quanto tempo depois de ativada ela pode permanecer sem ser digitada.
+
+9. (Parte VI) alt: número de linhas onde aparecem as palavras (altura da tela menos linhas usadas para outra coisa no topo e embaixo). Então se a altura é 500, usei 5 linhas para outra coisa no topo antes das palavras e usei 6 linhas abaixo das palavras, alt = 500 - 11?
+
+   A altura é em linhas, que é a liberdade que temos para posicionamento de uma palavra. A tela não vai ter 500 linhas (a não ser que tenha um monitor muito grande e excelente visão).
+Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 linhas para mostrar as palavras. Aquelas que recém foram ativadas serão mostradas na linha bem de cima dessas 39, as que estiverem prestes a estourar o tempo aparecerão bem abaixo. Cada vez que a tela é desenhada, a posição de cada palavra é recalculada. Conforme o tempo vai passando, as palavras vão sendo mostradas mais para baixo.
