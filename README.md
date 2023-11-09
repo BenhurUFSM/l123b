@@ -87,6 +87,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   20 |  19out | Exercícios
 |   21 |  31out | Exercícios
 |   22 |   7nov | [Registros](Aulas/22.md)
+|   23 |   9nov | [Exercícios (*struct, enum*)](Aulas/23.md)
 
 ## Exercícios, trabalhos, provas
 
