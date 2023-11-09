@@ -84,6 +84,9 @@ Os assuntos vistos em aula serão listados aqui.
 |   17 |   5out | [exercícios com strings](Aulas/17.md)
 |   18 |  10out | [Referências (ponteiros)](Aulas/18.md)
 |   19 |  17out | [Arquivos](Aulas/19.md)
+|   20 |  19out | Exercícios
+|   21 |  31out | Exercícios
+|   22 |   7nov | [Registros](Aulas/22.md)
 
 ## Exercícios, trabalhos, provas
 
