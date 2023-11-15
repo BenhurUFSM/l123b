@@ -229,5 +229,5 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
     ```
     repete tantas vezes:
       sorteia um número que é uma posição válida na matriz grande
-      insere a palavra que tá nessa posição da matriz grande na matriz pequena
+      adiciona a palavra que tá nessa posição da matriz grande na matriz pequena
     ```
