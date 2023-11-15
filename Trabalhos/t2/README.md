@@ -195,3 +195,21 @@ Para cada palavra são sorteadas aleatoriamente 3 coisas: qual a palavra, quando
 
    A altura é em linhas, que é a liberdade que temos para posicionamento de uma palavra. A tela não vai ter 500 linhas (a não ser que tenha um monitor muito grande e excelente visão).
 Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 linhas para mostrar as palavras. Aquelas que recém foram ativadas serão mostradas na linha bem de cima dessas 39, as que estiverem prestes a estourar o tempo aparecerão bem abaixo. Cada vez que a tela é desenhada, a posição de cada palavra é recalculada. Conforme o tempo vai passando, as palavras vão sendo mostradas mais para baixo.
+
+10. (Parte III) Sugestão de algoritmo para implementar o laço principal de uma partida:
+    ```
+    marca a inexistência de palavra selecionada
+    repita:
+      se acabou o tempo, para de repetir
+      se o usuário atingiu os objetivos, para de repetir
+      desenha a tela
+      lê uma tecla
+      se não houver palavra selecionada:
+        se alguma palavra iniciar com a letra digitada:
+          faz a palavra selecionada ser essa palavra
+      se houver palavra selecionada e a primeira letra dela for igual à letra digitada:
+        remove a primeira letra da palavra selecionada
+        se era a última letra da palavra selecionada:
+          remove a palavra selecionada do vetor de palavras
+          marca a inexistência de palavra selecionada
+    ```
