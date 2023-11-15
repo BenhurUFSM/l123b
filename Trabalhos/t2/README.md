@@ -231,3 +231,8 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
       sorteia um número que é uma posição válida na matriz grande
       adiciona a palavra que tá nessa posição da matriz grande na matriz pequena
     ```
+
+12.  Como usar as funções de tela.h (e tela.c)
+- Desenha uma tela inteira por vez (não espalha printfs).
+- De preferência, faz uma função para fazer todo o desenho da tela.
+- Nessa função, primeiro chama tela_limpa(), depois desenha tudo o que quiser que apareça na tela, depois chama tela_atualiza().
