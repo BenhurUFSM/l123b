@@ -213,3 +213,21 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
           remove a palavra selecionada do vetor de palavras
           marca a inexistência de palavra selecionada
     ```
+   Na implementação desse algoritmo, a parte de leitura e tratamento de uma tecla provavelmente seria implementada por uma função a parte, que por sua vez também seria provavelmente dividida em funções auxiliares.
+
+11. (Parte IV) Sugestão de implementação da leitura de palavras do arquivo, com a implementação de uma função que adiciona uma palavra em um vetor de palavras (uma matriz):
+    ```
+    abre o arquivo
+    repete:
+      lê uma palavra do arquivo
+      se a leitura falhou, para de repetir
+      vê se a palavra serve
+      se for o caso, adiciona a palavra na matriz
+    fecha o arquivo
+    ```
+    A mesma função pode ser usada para copiar palavras selecionadas da matriz que contém todas as palavras para a matriz com as palavras de uma partida:
+    ```
+    repete tantas vezes:
+      sorteia um número que é uma posição válida na matriz grande
+      insere a palavra que tá nessa posição da matriz grande na matriz pequena
+    ```
