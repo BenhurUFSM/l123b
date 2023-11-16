@@ -236,3 +236,5 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
 - Desenha uma tela inteira por vez (não espalha printfs).
 - De preferência, faz uma função para fazer todo o desenho da tela.
 - Nessa função, primeiro chama tela_limpa(), depois desenha tudo o que quiser que apareça na tela, depois chama tela_atualiza().
+- Faz uma função de desenho para cada tela que o programa tiver.
+- Retira toda função de escrita (printf) de outros lugares do programa.
