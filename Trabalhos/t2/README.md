@@ -243,4 +243,4 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
 
     Remover a palavra do vetor quer dizer que o vetor passa a ter uma palavra a menos, e essa informação deve ser usada quando se percorre o vetor. Por exemplo, se o vetor tem espaço para 10 palavras e no momento só existem 3 palavras no vetor, a função que busca uma palavra para fazer a seleção não deve fazer a busca em 10 palavras, mas em 3; a função que imprime as palavras não deve percorrer as 10 posições do vetor, mas somente 3.
 
-14. O programa é inspirado por "word falling games", como [https://www.learntyping.org/galaxy-typing-game] ou [https://thetypingcat.com/typing-games/rain]
+14. O programa é inspirado por "falling words games", como [https://www.learntyping.org/galaxy-typing-game] ou [https://thetypingcat.com/typing-games/rain]
