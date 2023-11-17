@@ -44,7 +44,7 @@ O programa deve manter uma variável que representa a palavra selecionada (um í
 Pode não existir nenhuma palavra selecionada.
 
 Se existir uma palavra selecionada, o usuário deve digitar a primeira letra dessa palavra, que deve então ser removida da palavra.
-Se o usuário digitar a última letra da palavra, ela deve ser retirada do vetor, e o programa passa a não ter uma palavra selecionada.
+~Se o usuário digitar a última letra da palavra,~ Quando o usuário terminar de digitar a palavra selecionada, essa palavra deve ser retirada do vetor, e o programa passa a não ter uma palavra selecionada.
 
 Se não existir palavra selecionada, a letra digitada pelo usuário será usada para selecionar uma das palavras que iniciam com essa letra (ou não selecionará nada se nenhuma palavra iniciar com a letra digitada).
 
@@ -238,3 +238,7 @@ Então, se a tela tem 50 linhas e usou 11 para colocar outras coisas, sobram 39 
 - Nessa função, primeiro chama tela_limpa(), depois desenha tudo o que quiser que apareça na tela, depois chama tela_atualiza().
 - Faz uma função de desenho para cada tela que o programa tiver.
 - Retira toda função de escrita (printf) de outros lugares do programa.
+
+13. A explicação sobre a remoção da palavra selecionada estava mal escrita. A palavra vai ser digitada letra a letra, e quando terminar, a palavra deve ser removida do vetor. A palavra não deve ser removida só porque uma letra igual à última da palavra for digitada, mas quando for digitada a última letra restante da palavra.
+
+    Remover a palavra do vetor quer dizer que o vetor passa a ter uma palavra a menos, e essa informação deve ser usada quando se percorre o vetor. Por exemplo, se o vetor tem espaço para 10 palavras e no momento só existem 3 palavras no vetor, a função que busca uma palavra para fazer a seleção não deve fazer a busca em 10 palavras, mas em 3; a função que imprime as palavras não deve percorrer as 10 posições do vetor, mas somente 3.
