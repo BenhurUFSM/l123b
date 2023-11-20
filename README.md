@@ -88,6 +88,19 @@ Os assuntos vistos em aula serão listados aqui.
 |   21 |  31out | Exercícios
 |   22 |   7nov | [Registros](Aulas/22.md)
 |   23 |   9nov | [Exercícios (*struct, enum*)](Aulas/23.md)
+|   24 |  14nov | Exercícios
+|   25 |  16nov | Exercícios
+|   26 |  21nov |
+|   27 |  23nov |
+|   28 |  27nov | **Atenção, esta segunda tem aulas de quinta**
+|   -- |  28nov | **Atenção, esta terça tem aulas de sexta**
+|   29 |  30nov |
+|   -- |   5dez | **Atenção, esta terça tem aulas de sexta**
+|   30 |   7dez |
+|   -- |  12dez | **Atenção, esta terça tem aulas de sábado**
+|      |  14dez | final
+|      |  19dez | final
+
 
 ## Exercícios, trabalhos, provas
 
