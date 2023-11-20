@@ -1,6 +1,7 @@
 ## t3 - solitaire
 
 Você deve implementar o jogo "solitaire", **como descrito abaixo**.
+Um exemplo desse jogo pode ser visto (aqui)[https://www.solitr.com/klondike-turn-one].
 
 ### parte I
 
