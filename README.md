@@ -113,4 +113,5 @@ Os assuntos vistos em aula serão listados aqui.
 |    E4 | 5set      | [impressão de números](Exercicios/e4)
 |    T1 | 3out,12h  | [digitação de números](Trabalhos/t1)
 |    T2 | 16nov,12h | [digitação de letras](Trabalhos/t2)
+|    T3 |  | [klondike](Trabalhos/t3)
 
