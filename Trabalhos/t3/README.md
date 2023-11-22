@@ -90,9 +90,7 @@ As funções que movem cartas de uma pilha do jogo devem mover somente cartas ab
 
 Funções auxiliares para o desenho do jogo.
 
-Para implementá-las, podem ser usadas as funções de tela.h e tela.c do t2, ou as funções de telag.h e telag.c.
-
-Os arquivos telag ainda estão sendo desenvolvidos...
+Para implementá-las, podem ser usadas as funções de tela.h e tela.c do t2, ou as funções de telag.h e telag.c (tem um exemplo de uso de telag em telag_exemplo.c, com um comentário no início sobre como compilar).
 
 Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coordenadas y e x no caso de tela gráfica) onde o desenho deve iniciar.
 
