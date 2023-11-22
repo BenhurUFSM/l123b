@@ -23,12 +23,12 @@ As funções a implementar para a parte I (essas funções não dependem da form
 | diz se uma pilha está vazia | `pilha_t *` | `bool` (`true` se vazia) 
 | empilha uma carta | `pilha_t *`, `carta_t` | `void`
 | retorna o topo | `pilha_t *` | `carta_t`
-| remove o topo | `pilha_t *` | carta_t
+| remove o topo | `pilha_t *` | `carta_t`
 | move cartas entre pilhas (1) | `pilha_t *`, `pilha_t *`, `int` | `void`
 | abre a carta no topo da pilha | `pilha_t *` | `void`
 | fecha todas as cartas da pilha | `pilha_t *` | `void`
 | descrição da carta (2) | `carta_t`, `char *` | `void`
-| esvazia uma pilha | `pilha_t *` | void
+| esvazia uma pilha | `pilha_t *` | `void`
 | gera baralho inteiro (3) | `pilha_t *` | `void`
 | embaralha as cartas em uma pilha | `pilha_t *` | `void`
 
@@ -91,6 +91,8 @@ As funções que movem cartas de uma pilha do jogo devem mover somente cartas ab
 Funções auxiliares para o desenho do jogo.
 
 Para implementá-las, podem ser usadas as funções de tela.h e tela.c do t2, ou as funções de telag.h e telag.c.
+
+Os arquivos telag ainda estão sendo desenvolvidos...
 
 Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coordenadas y e x no caso de tela gráfica) onde o desenho deve iniciar.
 

@@ -1,0 +1,783 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Introdu\u231 ?\u227 ?o \u8212- aula pr\u225 ?tica\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Cada volunt\u225 ?rio ir\u225 ? realizar o trabalho de uma das partes do nosso computador.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 As partes consideradas s\u227 ?o: 1. mem\u243 ?ria 2. unidade de entrada 3. unidade de sa\u237 ?da 4. unidade l\u243 ?gica e aritm\u233 ?tica 5. unidade de busca de instru\u231 ?\u245 ?es 6. unidade de decodifica\u231 ?\u227 ?o de instru\u231 ?\u245 ?es 7. unidade de execu\u231 ?\u227 ?o de instru\u231 ?\u245 ?es\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Essas unidades s\u227 ?o interligadas por um barramento, que permite a comunica\u231 ?\u227 ?o entre elas. O barramento permite a comunica\u231 ?\u227 ?o entre uma unidade de origem e uma unidade de destino por vez. Vamos chamar cada uma dessas comunica\u231 ?\u245 ?es de \u8220"mensagem\u8221". Para simplificar, teremos uma \u250 ?nica unidade ativa por vez, iniciando com a unidade 7. Quando a unidade ativa envia uma mensagem para outra, a unidade receptora passa a ser a ativa.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Uma mensagem \u233 ? composta por uma sequ\u234 ?ncia de n\u250 ?meros: - o primeiro n\u250 ?mero identifica a unidade destino da mensagem (segundo a numera\u231 ?\u227 ?o acima); - o segundo n\u250 ?mero identifica a origem da mensagem (tamb\u233 ?m de acordo com a numera\u231 ?\u227 ?o acima); - o terceiro n\u250 ?mero identifica a opera\u231 ?\u227 ?o que a unidade de origem espera que a unidade de destino realize. O significado desse n\u250 ?mero depende da unidade de destino, conforme ser\u225 ? explicado abaixo; no caso de mensagens de resposta, esse n\u250 ?mero \u233 ? sempre 0. - os demais n\u250 ?meros (se houver) dependem da opera\u231 ?\u227 ?o a ser realizado, conforme explicado abaixo. Para facilitar nossa vida, a mensagem enviada pela unidade de decodifica\u231 ?\u227 ?o ser\u225 ? um texto.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Cada uma das unidade \u233 ? capaz de realizar algumas opera\u231 ?\u245 ?es, cada uma delas identificada por um n\u250 ?mero. Essas opera\u231 ?\u245 ?es est\u227 ?o na descri\u231 ?\u227 ?o de cada unidade a seguir.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Mem\u243 ?ria (1)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Cont\u233 ?m uma s\u233 ?rie de posi\u231 ?\u245 ?es, cada uma contendo um valor. Cada posi\u231 ?\u227 ?o \u233 ? identificada por um n\u250 ?mero, iniciando por 0. No in\u237 ?cio, v\u225 ?rias dessas posi\u231 ?\u245 ?es j\u225 ? cont\u234 ?m valores, que representam o programa a ser executado. A mem\u243 ?ria \u233 ? capaz de realizar duas opera\u231 ?\u245 ?es, leitura e escrita 1. {\b leitura} (recebe {\f1 1 [org] 1 [end]}): o quarto n\u250 ?mero da mensagem ([end]) \u233 ? o endere\u231 ?o da mem\u243 ?ria que se quer ler. A mem\u243 ?ria envia uma mensagem de volta tendo como destino a unidade de origem da mensagem que recebeu, como origem a sua pr\u243 ?pria identifica\u231 ?\u227 ?o, como opera\u231 ?\u227 ?o um 0 (que indica resposta) e como quarto n\u250 ?mero o valor encontrado no endere\u231 ?o pedido. (envia {\f1 [org] 1 0 [valor]}) 2. {\b escrita} (recebe {\f1 1 [org] 2 [end] [val]}): [end] \u233 ? o endere\u231 ?o onde se quer escrever, [val] \u233 ? o valor a escrever. A mem\u243 ?ria substitui o valor que est\u225 ? nessa posi\u231 ?\u227 ?o pelo novo valor fornecido, e envia uma resposta contendo somente um 0. (envia {\f1 [org] 1 0})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade de entrada (2)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 No nosso caso, vai representar o usu\u225 ?rio e seu teclado. S\u243 ? tem uma opera\u231 ?\u227 ?o que o usu\u225 ?rio sabe fazer, que \u233 ? digitar um n\u250 ?mero; a unidade de entrada envia esse n\u250 ?mero como resposta. 1. {\b leitura} (recebe {\f1 2 [org] 1}): envia de volta uma mensagem contendo opera\u231 ?\u227 ?o 0 e como quarto n\u250 ?mero o valor digitado pelo usu\u225 ?rio. (envia {\f1 [org] 2 0 [valor]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade de sa\u237 ?da (3)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Representa o v\u237 ?deo. Tem uma \u250 ?nica opera\u231 ?\u227 ?o, que \u233 ? escrever um valor na tela (que ser\u225 ? o quadro).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1.\tx360\tab {\b escrita} (recebe {\f1 3 [org] 1 [val]}): o quarto n\u250 ?mero ([val]) da mensagem recebida \u233 ? o valor a ser escrito. Escreve esse valor e retorna uma mensagem contendo somente um 0. (envia {\f1 [org] 3 0})\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade l\u243 ?gica e aritm\u233 ?tica (4)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Consegue fazer contas. O quarto e o quinto valores na mensagem ([val1] e [val2]) s\u227 ?o os valores a operar. O resultado da opera\u231 ?\u227 ?o \u233 ? enviado de volta como quarto valor em uma mensagem com a opera\u231 ?\u227 ?o 0. As opera\u231 ?\u245 ?es s\u227 ?o: 1. {\b soma} (recebe {\f1 4 [org] 1 [val1] [val2]}): resultado \u233 ? [val1] + [val2] 2. {\b subtra\u231 ?\u227 ?o} (recebe {\f1 4 [org] 2 [val1] [val2]}): resultado \u233 ? [val1] - [val2] 3. {\b multiplica\u231 ?\u227 ?o} (recebe {\f1 4 [org] 3 [val1] [val2]}): resultado \u233 ? [val1] \u215 ? [val2] 4. {\b divis\u227 ?o} (recebe {\f1 4 [org] 4 [val1] [val2]}): resultado \u233 ? [val1] \u247 ? [val2] 5. {\b maior} (recebe {\f1 4 [org] 5 [val1] [val2]}): resultado \u233 ? 1 se [val1] for maior que o [val2], e 0 caso contr\u225 ?rio Mensagem de retorno: envia {\f1 [org] 4 0 [resultado]}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade de busca de instru\u231 ?\u245 ?es (5)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Essa unidade cont\u233 ?m um n\u250 ?mero, chamado PC, que inicialmente \u233 ? zero. Ela sabe fazer duas opera\u231 ?\u245 ?es, busca e altera\u231 ?\u227 ?o do PC. 1. {\b busca} (recebe {\f1 5 [org] 1}): 1. envia uma mensagem para a mem\u243 ?ria , pedindo para ler o valor no PC (envia {\f1 1 5 1 [PC]}) 2. espera o resultado 3. incrementa o valor no PC (se valia 4, passa a valer 5, por exemplo) 4. envia uma mensagem de retorno, com o valor lido da mem\u243 ?ria (envia {\f1 [org] 5 0 [valor lido]}) 2. {\b altera\u231 ?\u227 ?o do PC} (recebe {\f1 5 [org] 2 [val]}): coloca o [val] da mensagem recebida no PC, envia uma mensagem de retorno (envia {\f1 [org] 5 0})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade de decodifica\u231 ?\u227 ?o de instru\u231 ?\u245 ?es (6)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 S\u243 ? sabe fazer uma opera\u231 ?\u227 ?o, conseguir e decodificar a pr\u243 ?xima instru\u231 ?\u227 ?o para a unidade de controle. 1. {\b decodifica} (recebe {\f1 6 [org] 1}): 1. Busca a pr\u243 ?xima instru\u231 ?\u227 ?o (envia {\f1 5 6 1}, espera a mensagem de retorno com a instru\u231 ?\u227 ?o) 2. Encontra a descri\u231 ?\u227 ?o do que deve ser feito para implementar a instru\u231 ?\u227 ?o que tem esse c\u243 ?digo (ver abaixo) 3. Entrega essa descri\u231 ?\u227 ?o para a unidade [org] (deve ser a unidade de controle) 4. Espera o retorno da descri\u231 ?\u227 ?o\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Unidade de execu\u231 ?\u227 ?o de instru\u231 ?\u245 ?es (7)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \u201 ? a unidade que vai comandar tudo. Ela vai realizar o que cada instru\u231 ?\u227 ?o disser que tem que ser feito. Esta unidade pede a descri\u231 ?\u227 ?o da pr\u243 ?xima instru\u231 ?\u227 ?o para a unidade de decodifica\u231 ?\u227 ?o (envia {\f1 6 7 1}), segue o que est\u225 ? descrito, devolve a descri\u231 ?\u227 ?o para a unidade de decodifica\u231 ?\u227 ?o, pede uma nova descri\u231 ?\u227 ?o, e assim por diante, at\u233 ? que a descri\u231 ?\u227 ?o recebida diga que deve parar. Os passos a executar: 1. envia um pedido \u224 ? unidade de decodifica\u231 ?\u227 ?o (envia {\f1 6 7 1}) 2. recebe os passos a executar 3. executa esses passos 4. devolve o texto \u224 ? unidade de decodifica\u231 ?\u227 ?o 5. volta ao passo 1\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Descri\u231 ?\u227 ?o das instru\u231 ?\u245 ?es\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Existe uma descri\u231 ?\u227 ?o para cada c\u243 ?digo de instru\u231 ?\u227 ?o que o processador sabe executar. Essa descri\u231 ?\u227 ?o codifica a sequ\u234 ?ncia de passos necess\u225 ?rios para que uma instru\u231 ?\u227 ?o com esse c\u243 ?digo seja executada. Em processadores reais existem v\u225 ?rias formas de se codificar isso. Vamos usar uma descri\u231 ?\u227 ?o textual.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 1 (ESCREVE)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o escreve um n\u250 ?mero em um dispositivo de sa\u237 ?da. Tem duas informa\u231 ?\u245 ?es complementares, o endere\u231 ?o onde est\u225 ? o valor a escrever e a identifica\u231 ?\u227 ?o do dispositivo. Os passos a executar est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o do valor a escrever (envia {\f1 5 7 1}) 2. pede para a mem\u243 ?ria o valor a escrever (envia {\f1 1 7 1 [valor recebido no passo 1]}) 3. pede para a unidade de busca a identifica\u231 ?\u227 ?o do dispositivo (envia {\f1 5 7 1}) 4. pede para a unidade de saida escrever o resultado (envia {\f1 [valor recebido no passo 3] 7 1 [valor recebido no passo 2]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 2 (LE)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o l\u234 ? um valor de um dispositivo de entrada e coloca o valor lido em uma posi\u231 ?\u227 ?o de mem\u243 ?ria. Tem duas informa\u231 ?\u245 ?es complementares, o n\u250 ?mero do dispositivo e o endere\u231 ?o de mem\u243 ?ria onde colocar o valor. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca a identifica\u231 ?\u227 ?o do dispositivo (envia {\f1 5 7 1}) 2. pede para a unidade de entrada o pr\u243 ?ximo valor (envia {\f1 [valor recebido no passo 1] 7 1}) 3. pede para a unidade de busca o endere\u231 ?o onde colocar o valor lido (envia {\f1 5 7 1}) 4. pede para a mem\u243 ?ria guardar o valor (envia {\f1 1 7 2 [valor recebido no passo 3] [valor recebido no passo 2]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 3 (SOMA)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o realiza a soma de dois valores. Tem 3 informa\u231 ?\u245 ?es complementares, os endere\u231 ?os dos dois valores a somar e o endere\u231 ?o onde deve colocar o resultado. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o primeiro valor (envia {\f1 5 7 1}) 2. pede para a mem\u243 ?ria o primeiro valor (envia {\f1 1 7 1 [valor recebido no passo 1]}) 3. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o segundo valor (envia {\f1 5 7 1}) 4. pede para a mem\u243 ?ria o segundo valor (envia {\f1 1 7 1 [valor recebido no passo 3]}) 5. pede para a ULA fazer a soma (envia {\f1 4 7 1 [valor do passo 2] [valor do passo 4]}) 6. pede para a unidade de busca o endere\u231 ?o onde colocar o resultado (envia {\f1 5 7 1}) 7. pede para a mem\u243 ?ria guardar o valor (envia {\f1 1 7 2 [valor recebido no passo 6] [valor recebido no passo 5]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 4 (SUBTRAI)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o realiza a subtra\u231 ?\u227 ?o de dois valores. Tem 3 informa\u231 ?\u245 ?es complementares, os endere\u231 ?os dos dois valores a subtrair e o endere\u231 ?o onde deve colocar o resultado. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o primeiro valor (envia {\f1 5 7 1}) 2. pede para a mem\u243 ?ria o primeiro valor (envia {\f1 1 7 1 [valor recebido no passo 1]}) 3. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o segundo valor (envia {\f1 5 7 1}) 4. pede para a mem\u243 ?ria o segundo valor (envia {\f1 1 7 1 [valor recebido no passo 3]}) 5. pede para a ULA fazer a subtra\u231 ?\u227 ?o (envia {\f1 4 7 2 [valor do passo 2] [valor do passo 4]}) 6. pede para a unidade de busca o endere\u231 ?o onde colocar o resultado (envia {\f1 5 7 1}) 7. pede para a mem\u243 ?ria guardar o valor (envia {\f1 1 7 2 [valor recebido no passo 6] [valor recebido no passo 5]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 5 (DIVIDE)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o realiza a divis\u227 ?o de dois valores. Tem 3 informa\u231 ?\u245 ?es complementares, os endere\u231 ?os dos dois valores a dividir e o endere\u231 ?o onde deve colocar o resultado. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o primeiro valor (envia {\f1 5 7 1}) 2. pede para a mem\u243 ?ria o primeiro valor (envia {\f1 1 7 1 [valor recebido no passo 1]}) 3. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o segundo valor (envia {\f1 5 7 1}) 4. pede para a mem\u243 ?ria o segundo valor (envia {\f1 1 7 1 [valor recebido no passo 3]}) 5. pede para a ULA fazer a divis\u227 ?o (envia {\f1 4 7 4 [valor do passo 2] [valor do passo 4]}) 6. pede para a unidade de busca o endere\u231 ?o onde colocar o resultado (envia {\f1 5 7 1}) 7. pede para a mem\u243 ?ria guardar o valor (envia {\f1 1 7 2 [valor recebido no passo 6] [valor recebido no passo 5]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 7 (DESVIO INCONDICIONAL)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o causa o desvio da execu\u231 ?\u227 ?o: as pr\u243 ?ximas instru\u231 ?\u245 ?es devem passar a ser buscadas em outro lugar. Tem 1 informa\u231 ?\u227 ?o complementar, o endere\u231 ?o da instru\u231 ?\u227 ?o para onde deve desviar. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? a pr\u243 ?xima instru\u231 ?\u227 ?o (envia {\f1 5 7 1}) 2. realiza o desvio, pedindo para a unidade de busca alterar o valor do PC (envia {\f1 5 7 2 [valor recebido do passo 1]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 8 (DESVIO CONDICIONAL MAIOR)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Esta instru\u231 ?\u227 ?o causa o desvio da execu\u231 ?\u227 ?o, condicionado \u224 ? compara\u231 ?\u227 ?o de dois valores: se o primeiro for maior que o segundo, realiza o desvio, sen\u227 ?o n\u227 ?o desvia. Tem 3 informa\u231 ?\u245 ?es complementares, os endere\u231 ?os dos dois valores a comparar e o endere\u231 ?o da instru\u231 ?\u227 ?o para onde deve desviar. Os passos para sua execu\u231 ?\u227 ?o est\u227 ?o abaixo. Ap\u243 ?s cada passo que faz um pedido a outra unidade, deve esperar o resultado enviado por ela. 1. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o primeiro valor (envia {\f1 5 7 1}) 2. pede para a mem\u243 ?ria o primeiro valor (envia {\f1 1 7 1 [valor recebido no passo 1]}) 3. pede para a unidade de busca o endere\u231 ?o onde est\u225 ? o segundo valor (envia {\f1 5 7 1}) 4. pede para a mem\u243 ?ria o segundo valor (envia {\f1 1 7 1 [valor recebido no passo 3]}) 5. pede para a ULA fazer a compara\u231 ?\u227 ?o (envia {\f1 4 7 5 [valor do passo 2] [valor do passo 4]}) 6. pede para a unidade de busca o endere\u231 ?o para onde desviar (envia {\f1 5 7 1}) 7. se o valor recebido da ULA (passo 5) for 1, faz o desvio; se n\u227 ?o, n\u227 ?o faz mais nada nesta instru\u231 ?\u227 ?o. Para fazer o desvio, pede para a unidade de busca alterar o valor do PC (envia {\f1 5 7 2 [valor do passo 6]})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Instru\u231 ?\u227 ?o 9 (PARA)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Essa instru\u231 ?\u227 ?o causa a parada da CPU. Os passos a executar s\u227 ?o os seguintes:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1.\tx360\tab Para\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Programas\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Abaixo est\u227 ?o alguns programas. O que eles fazem?\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Programa 1\par}
+{
+\trowd \trgaph120
+\clbrdrb\brdrs\cellx2468\clbrdrb\brdrs\cellx3085\clbrdrb\brdrs\cellx3702\clbrdrb\brdrs\cellx4319\clbrdrb\brdrs\cellx4936\clbrdrb\brdrs\cellx5553\clbrdrb\brdrs\cellx6170\clbrdrb\brdrs\cellx6787\clbrdrb\brdrs\cellx7404\clbrdrb\brdrs\cellx8021\clbrdrb\brdrs\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 4\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 5\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 6\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 7\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 20\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 21\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 20\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 21\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 22\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 10\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 11\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 13\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 16\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 17\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 5\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 22\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 23\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 23\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Programa 2\par}
+{
+\trowd \trgaph120
+\clbrdrb\brdrs\cellx2468\clbrdrb\brdrs\cellx3085\clbrdrb\brdrs\cellx3702\clbrdrb\brdrs\cellx4319\clbrdrb\brdrs\cellx4936\clbrdrb\brdrs\cellx5553\clbrdrb\brdrs\cellx6170\clbrdrb\brdrs\cellx6787\clbrdrb\brdrs\cellx7404\clbrdrb\brdrs\cellx8021\clbrdrb\brdrs\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 4\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 5\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 6\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 7\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 19\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 19\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 10\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 11\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 13\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 16\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 17\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 19\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 4\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 19\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 20\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 18\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 20\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Programa 3\par}
+{
+\trowd \trgaph120
+\clbrdrb\brdrs\cellx2468\clbrdrb\brdrs\cellx3085\clbrdrb\brdrs\cellx3702\clbrdrb\brdrs\cellx4319\clbrdrb\brdrs\cellx4936\clbrdrb\brdrs\cellx5553\clbrdrb\brdrs\cellx6170\clbrdrb\brdrs\cellx6787\clbrdrb\brdrs\cellx7404\clbrdrb\brdrs\cellx8021\clbrdrb\brdrs\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 4\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 5\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 6\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 7\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 13\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 10\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 11\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 13\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 6\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel3 \b \fs24 Programa 4\par}
+{
+\trowd \trgaph120
+\clbrdrb\brdrs\cellx2468\clbrdrb\brdrs\cellx3085\clbrdrb\brdrs\cellx3702\clbrdrb\brdrs\cellx4319\clbrdrb\brdrs\cellx4936\clbrdrb\brdrs\cellx5553\clbrdrb\brdrs\cellx6170\clbrdrb\brdrs\cellx6787\clbrdrb\brdrs\cellx7404\clbrdrb\brdrs\cellx8021\clbrdrb\brdrs\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 4\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 5\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 6\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 7\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 2\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 16\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+{\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b endere\u231 ?o}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 10\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 11\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 12\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 13\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 14\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 16\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 17\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx2468\cellx3085\cellx3702\cellx4319\cellx4936\cellx5553\cellx6170\cellx6787\cellx7404\cellx8021\cellx8638
+\trkeep\intbl
+{
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 {\b valor}\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 8\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 15\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 17\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 3\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 9\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 -1\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 0\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+{{\pard\intbl \qr \f0 \sa0 \li0 \fi0 .\par}
+\cell}
+}
+\intbl\row}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+}
