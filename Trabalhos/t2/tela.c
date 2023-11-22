@@ -14,6 +14,7 @@
 #include <signal.h>
 #include <time.h>
 #include <sys/ioctl.h>
+#include <fcntl.h>
 
 
 static void tela_altera_modo_saida(void)
@@ -83,11 +84,24 @@ static int nlin, ncol;
 static void tela_le_nlincol(int nada)
 {
   struct winsize tam;
+  bool ok = false;
   // pede para o sistema o tamanho da janela de texto
-  ioctl(1, TIOCGWINSZ, &tam);
-  nlin = tam.ws_row;
-  ncol = tam.ws_col;
-  tela_limpa();
+  int fd = open(ctermid(NULL), O_RDWR);
+  if (fd != -1) {
+    if (ioctl(fd, TIOCGWINSZ, &tam) == 0) {
+      nlin = tam.ws_row;
+      ncol = tam.ws_col;
+      if (nlin > 15 && ncol > 20) {
+        ok = true;
+      }
+    }
+  }
+  if (!ok) {
+    nlin = 24;
+    ncol = 80;
+    printf("Não consegui identificar tamanho do terminal, usando %dx%d\n",
+        nlin, ncol);
+  }
 }
 
 int tela_nlin(void)
