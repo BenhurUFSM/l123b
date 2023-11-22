@@ -28,18 +28,67 @@ As funções a implementar para a parte I (essas funções não dependem da form
 | abre a carta no topo da pilha | `pilha_t *` | `void`
 | fecha todas as cartas da pilha | `pilha_t *` | `void`
 | descrição da carta (2) | `carta_t`, `char *` | `void`
+| esvazia uma pilha | `pilha_t *` | void
+| gera baralho inteiro (3) | `pilha_t *` | `void`
+| embaralha as cartas em uma pilha | `pilha_t *` | `void`
 
 (1) o inteiro é o número de cartas a mover. Elas são movidar do topo da pilha de origem para o topo da pilha de destino. As cartas passadas devem ficar abertas na pilha de destino, mesmo que estejam fechadas na pilha de origem. As cartas devem permanecer na mesma ordem: a carta que estava no topo na pilha de origem deve ficar no topo na pilha de destino. Deve testar e abortar (com assert) se há cartas suficientes na origem e espaço no destino.
 
 (2) o vetor de char apontado deve ser preenchido com uma string com a descrição da carta (como o que é escrito pela função desenha_carta do exemplo).
 
+(3) esvazia a pilha e insere nela as 52 cartas do baralho, em qualquer ordem.
+
 ### parte II
 
-Faça a parte I enquanto aguarda...
+Funções de manipulação de cartas e pilhas de cartas de mais alto nível, mais próximas às necessidades do jogo. Essas funções **não devem** reimplementar funcionalidades existentes nas funções da parte I (devem chamar as funções).
+
+Crie um tipo `jogo_t`, um registro que conterá os dados necessários para realizar uma partida.
+Inicialmente, deve conter 13 pilhas: 
+- o monte, que contém as cartas fechadas a serem distribuídas;
+- o descarte, onde ficam as cartas do monte ao serem abertas;
+- 4 pilhas de saída, onde são colocadas as cartas retiradas do jogo, em ordem e por naipe;
+- 7 pilhas principais, onde acontecem as movimentações principais do jogo.
+
+| funcionalidade            | argumentos            | retorno
+| :--- | :--- | :---
+| inicializa as pilhas do jogo (1) | `jogo_t *` | `void`
+| verifica se pode mover para a saída (2) | `jogo_t *`, `int`, `carta_t` | `bool`
+| verifica se pode mover para pilha de jogo (3) | `jogo_t *`, `int`, `carta_t` | `bool`
+| verifica se pode mover tantas cartas de uma pilha de jogo (4) | `jogo_t *`, `int`, `int` | `bool`
+| verifica se o jogador ganhou | `jogo_t *` | `bool`
+
+(1) esvazia todas as pilhas, preenche o monte com o baralho inteiro (fechadas), embaralha, move cartas do monte para as pilhas principais (uma para a primeira, duas para a segunda, sete para a última), fecha todas as cartas exceto a do topo em cada pilha.
+
+(2) é possível mover uma carta para uma pilha de saída se a pilha estiver vazia e a carta for um ás ou se a carta tiver o mesmo naipe da carta no topo da pilha e o valor imediatamente superior. O int (0 a 3) identifica a pilha.
+
+(3) é possível mover uma carta para uma pilha de jogo se a pilha estiver vazia e a carta for um rei ou se a carta tiver a cor diferente da carta no topo da pilha e o valor imediatamente inferior. O int (0 a 6) identifica a pilha.
+
+(4) só é possível mover cartas que estejam abertas.
 
 ### parte III
 
-Implemente as funções abaixo que serão usadas para o desenho das cartas na tela.
+Funções que implementam as jogadas possíveis do jogo. Retornam `true` se a jogada foi bem sucedida e `false` se a jogada não pode ser realizada.
+As funções das partes anteriores **devem** ser usadas na implementação destas funções.
+As funções que movem cartas de uma pilha do jogo devem mover somente cartas abertas, e fazer com que a carta no topo da pilha esteja aberta após o movimento.
+
+| funcionalidade            | argumentos            | retorno
+| :--- | :--- | :---
+| abre uma carta (1) | `jogo_t *` | `bool`
+| recicla o descarte (2) | `jogo_t *` | `bool`
+| move do descarte para uma saída | `jogo_t *`, `int` | `bool`
+| move do descarte para uma pilha do jogo | `jogo_t *`, `int` | `bool`
+| move de uma pilha do jogo para uma saída | `jogo_t *`, `int`, `int` | `bool`
+| move de uma saída para uma pilha do jogo | `jogo_t *`, `int`, `int` | `bool`
+| move tantas cartas de uma pilha do jogo para outra | `jogo_t *`, `int`, `int`, `int` | `bool`
+
+
+(1) move a carta do topo do monte para o topo do descarte, aberta. A jogada não é possível se o monte estiver vazio.
+
+(2) move todas as cartas do descarte para o monte, em ordem inversa (a do topo do descarte deve ficar no fundo do monte). As cartas do monte devem ficar fechadas. A jogada não é possível se o descarte tiver vazio ou se o monte não tiver vazio.
+
+### parte IV
+
+Funções auxiliares para o desenho do jogo.
 
 Para implementá-las, podem ser usadas as funções de tela.h e tela.c do t2, ou as funções de telag.h e telag.c.
 
@@ -59,3 +108,6 @@ Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coor
 
 (3) Deve desenhar cada carta da pilha, a primeira carta na posição recebida, e cada carta seguinte em uma posição um pouco abaixo, parcialmente sobre a anterior, de forma que se consiga distinguir cada carta. A última carta desenhada é a carta do topo da pilha. Deve ser levado em consideração as cartas fechadas e abertas, e a possibilidade de a pilha estar vazia. Deve usar as funções anteriores para desenhar.
 
+### parte V
+
+breve
