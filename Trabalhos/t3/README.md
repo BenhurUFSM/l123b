@@ -112,7 +112,8 @@ As funções que movem cartas de uma pilha do jogo devem mover somente cartas ab
 
 Funções auxiliares para o desenho do jogo.
 
-Para implementá-las, podem ser usadas as funções de tela.h e tela.c do t2, ou as funções de telag.h e telag.c (tem um exemplo de uso de telag em telag_exemplo.c, com um comentário no início sobre como compilar).
+Para implementá-las, podem ser usadas as funções de tela.h e tela.c (tem um exemplo de uso em tela_exemplo.c), ou as funções de telag.h e telag.c (tem um exemplo de uso de telag em telag_exemplo.c, com um comentário no início sobre como compilar).
+Use os arquivos do t3, eles foram alterados em relação ao t2.
 
 Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coordenadas y e x no caso de tela gráfica) onde o desenho deve iniciar.
 
@@ -173,3 +174,26 @@ Pode adicionar mais dados, caso queira representar algum estado adicional do jog
 (3) desenha os adornos e decorações que achar interessante para que a tela fique mais atrativa. No mínimo tem que ter a identificação das pilhas e a pontuação.
 
 (4) chama as funções que fazem o desenho do fundo, das pilhas, dos extras e a função que atualiza a tela, nessa ordem.
+
+### parte VII
+
+Entrada de dados.
+
+Altere `jogo_t` para conter um vetor onde será colocada a string com o comando do usuário.
+
+| funcionalidade            | argumentos            | retorno
+| :--- | :--- | :---
+| processa teclado (1) | `jogo_t *` | `void`
+
+(1) lê uma tecla do teclado, monta a string de comando com essa tecla, processa os caracteres especiais '\b' (para apagar o último caractere) e '\n' (para finalizar o comando e chamar a função que executa um comando).
+
+**PROMOÇÃO DE BLACK FRIDAY** Aproveite, o p7 tá com descontaço, só hoje!!!
+
+
+### parte VIII
+
+Fim de partida.
+
+### parte IX
+
+Faça um programa para jogar klondike.
