@@ -105,6 +105,11 @@ bool tela_rato_clicado(void);
 // retorna a posição do mouse na última vez que ele foi clicado
 void tela_rato_pos_clique(int *px, int *py);
 
+// retorna uma tecla digitada ou '\0' se nenhuma tecla for digitada
+// se for digitado enter, retorna '\n'
+// se for digitado backspace, retorna '\b'
+char tela_tecla(void);
+
 
 // TEMPO
 

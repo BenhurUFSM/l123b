@@ -22,6 +22,8 @@ int main(void)
   // cria uma cor (como não tem essa nas pré-definidas?)
   int fucsia = 11;
   tela_altera_cor(fucsia, 1, 0.2, 0.8, 1);
+  
+  char tec = 'x';
 
   double inicio = tela_relogio();
   // laço principal por 10 segundos
@@ -43,12 +45,16 @@ int main(void)
 
     // desenha um círculo na posição do mouse
     tela_circulo(rx, ry, 10, 2, vermelho, branco);
+    tela_texto(rx, ry, 20, verde, "\u256d\u256e\u2573\u2570\u256f");
 
     // escreve o valor do relógio no canto da tela
-    char txt[10];
-    sprintf(txt, "%.1f", tempo);
-    tela_texto_esq(450, 445, 20, azul, txt);
+    char txt[100];
+    sprintf(txt, "\u2660\u2663\u2665\u2666%c%.1f", tec, tempo);
+    tela_texto_esq(450, 245, 20, fucsia, "\u2591\u2591");
+    tela_texto_esq(450, 245, 20, amarelo, txt);
 
+    char c = tela_tecla();
+    if (c) tec = c;
     // faz aparecer na tela o que foi desenhado
     tela_atualiza();
   }

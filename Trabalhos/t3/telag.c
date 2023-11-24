@@ -9,7 +9,7 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 
-void cai_fora(char *msg)
+static void cai_fora(char *msg)
 {
   int cai = 42;
   int fora = 42;
@@ -17,7 +17,7 @@ void cai_fora(char *msg)
   assert(cai-fora);
 }
 
-void tela_inicializa_janela(float l, float a, char n[])
+static void tela_inicializa_janela(float l, float a, char n[])
 {
   // pede para tentar linhas mais suaves (multisampling)
   al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
@@ -33,8 +33,8 @@ void tela_inicializa_janela(float l, float a, char n[])
 
 // vetor com as cores
 #define NCORES 100 // número máximo de cores diferentes
-ALLEGRO_COLOR cores[NCORES];
-void tela_inicializa_cores(void)
+static ALLEGRO_COLOR cores[NCORES];
+static void tela_inicializa_cores(void)
 {
   tela_altera_cor(transparente, 0, 0, 0, 0);
   tela_altera_cor(azul, 0, 0, 1, 1);
@@ -55,6 +55,18 @@ void tela_altera_cor(int cor,
   cores[cor] = al_map_rgba_f(vm, az, vd, opacidade);
 }
 
+// fila para receber os eventos do teclado
+ALLEGRO_EVENT_QUEUE *tela_eventos_teclado;
+void tela_inicializa_teclado(void)
+{
+  if (!al_install_keyboard()) cai_fora("problema na inicialização do teclado do allegro");
+  // cria e inicializa a fila de eventos do teclado
+  tela_eventos_teclado = al_create_event_queue();
+  if (tela_eventos_teclado == NULL) cai_fora("problema na criação da fila de eventos do teclado do allegro");
+  al_register_event_source(tela_eventos_teclado,
+                           al_get_keyboard_event_source());
+}
+
 void tela_inicio(int largura, int altura, char nome[])
 {
   // inicializa os subsistemas do allegro
@@ -66,6 +78,7 @@ void tela_inicio(int largura, int altura, char nome[])
 
   // inicializa a tela
   tela_inicializa_janela(largura, altura, nome);
+  tela_inicializa_teclado();
   tela_inicializa_cores();
 }
 
@@ -118,7 +131,7 @@ void tela_retangulo(float x1, float y1, float x2, float y2, float l,
 // tem que ter uma fonte para poder escrever
 static ALLEGRO_FONT *fonte = NULL;
 
-void tela_prepara_fonte(int tam)
+static void tela_prepara_fonte(int tam)
 {
   static int tamanho_das_letras = 0;
 
@@ -195,6 +208,27 @@ void tela_rato_pos_clique(int *px, int *py)
   *px = x_clicado;
   *py = y_clicado;
 }
+
+
+char tela_tecla(void)
+{
+  ALLEGRO_EVENT ev;
+
+  while (al_get_next_event(tela_eventos_teclado, &ev)) {
+    if (ev.type == ALLEGRO_EVENT_KEY_CHAR) {
+      int k = ev.keyboard.keycode;
+      switch (k) {
+        case ALLEGRO_KEY_ENTER:     return '\n';
+        case ALLEGRO_KEY_BACKSPACE: return '\b';
+      }
+      int c = ev.keyboard.unichar;
+      return c;
+    }
+  }
+  // nada foi pressionado (ou foi pressionado algo não imprimível)
+  return '\0';
+}
+
 
 double tela_relogio(void)
 {
