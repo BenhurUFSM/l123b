@@ -123,6 +123,7 @@ Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coor
 | desenho de carta aberta | `int`, `int`, `carta_t` | `void`
 | desenho de pilha fechada (2) | `int`, `int`, `pilha_t *` | `void`
 | desenho de pilha aberta (3) | `int`, `int`, `pilha_t *` | `void`
+| desenho compacto de pilha aberta (4) | `int`, `int`, `pilha_t *` | `void`
 
 (1) os 2 inteiros são linha e coluna na tela onde o desenho deve iniciar. Faz um desenho que representa um local onde uma carta pode ser posicionada.
 
@@ -130,6 +131,45 @@ Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coor
 
 (3) Deve desenhar cada carta da pilha, a primeira carta na posição recebida, e cada carta seguinte em uma posição um pouco abaixo, parcialmente sobre a anterior, de forma que se consiga distinguir cada carta. A última carta desenhada é a carta do topo da pilha. Deve ser levado em consideração as cartas fechadas e abertas, e a possibilidade de a pilha estar vazia. Deve usar as funções anteriores para desenhar.
 
+(4) Desenha a pilha de forma alternativa, ocupando menos espaço vertical. Por exemplo, pode desenhar uma só carta fechada com um número dentro indicando quantas tem, e a primeira e a última cartas abertas, com uma carta especial entre elas indicando o número de cartas abertas que não estão sendo representadas.
+
 ### parte V
 
-breve
+Cálculo de pontos.
+
+Altere a estrutura jogo_t para conter os pontos, e o que mais for necessário para poder calcular os pontos como descrito abaixo.
+Altere a função de inicialização da estrutura para zerar os pontos.
+Altere as funções de movimentação para alterar os pontos:
+- reciclagem dos descartes zera os pontos;
+- movimentação do descarte para pilha de jogo dá 10 pontos mais bônus;
+- abertura de carta na pilha de jogo dá 20 pontos mais bônus;
+- carta colocada em pilha de saída dá 15 pontos;
+- carta retirada de pilha de saída retira 15 pontos.
+
+O bônus é um adicional de pontos para premiar o jogador rápido, que faz a jogada em menos de 7 segundos. É um percentual dos pontos ganhos na jogada, que pode varias entre 0 e 300%. Se demorar 7 segundos ou mais, o bônus é 0. Senão, o bônus é calculado de acordo com o tempo de duração da jogada (desde a jogada anterior):
+```
+bonus = (7 - tempo_da_jogada) / 7 * 3 * pontos_da_jogada
+```
+
+### parte VI
+
+Desenho da tela.
+
+Altere a estrutura `jogo_t`, para adicionar coordenadas para as 13 pilhas.
+Pode adicionar mais dados, caso queira representar algum estado adicional do jogo (por exemplo, poderia ter uma variável que diz que a jogada anterior não foi aceita, e algo ser desenhado na tela para representar essa situação; pode ter uma variável com a string ainda não confirmada da jogada do usuário e essa string ser mostrada, a pilha identificada pela string ser desenhada de forma destacada, etc).
+
+| funcionalidade            | argumentos            | retorno
+| :--- | :--- | :---
+| inicializar coordenadas (1) | `jogo_t *` | `void`
+| desenho das pilhas (2) | `jogo_t *` | `void`
+| desenho de extras (3) | `jogo_t *` | `void`
+| desenho do fundo (3) | `jogo_t *` | `void`
+| desenho da tela (4) | `jogo_t *` | `void`
+
+(1) inicializa as coordenadas das pilhas, levando em conta o tamanho da tela.
+
+(2) chama as funções da parte IV para desenhar as pilhas. Para as pilhas de jogo, pode chamar o desenho compacto ou não, dependendo do tamanho da pilha e do espaço disponível.
+
+(3) desenha os adornos e decorações que achar interessante para que a tela fique mais atrativa. No mínimo tem que ter a identificação das pilhas e a pontuação.
+
+(4) chama as funções que fazem o desenho do fundo, das pilhas, dos extras e a função que atualiza a tela, nessa ordem.
