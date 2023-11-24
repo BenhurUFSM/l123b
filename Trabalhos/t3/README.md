@@ -21,22 +21,38 @@ As funções a implementar para a parte I (essas funções não dependem da form
 | funcionalidade            | argumentos            | retorno
 | :--- | :--- | :---
 | diz se uma pilha está vazia | `pilha_t *` | `bool` (`true` se vazia) 
-| empilha uma carta | `pilha_t *`, `carta_t` | `void`
+| diz se uma pilha está cheia | `pilha_t *` | `bool` (`true` se cheia)
+| empilha uma carta (5) | `pilha_t *`, `carta_t` | `void`
 | retorna o topo | `pilha_t *` | `carta_t`
 | remove o topo | `pilha_t *` | `carta_t`
 | move cartas entre pilhas (1) | `pilha_t *`, `pilha_t *`, `int` | `void`
 | abre a carta no topo da pilha | `pilha_t *` | `void`
 | fecha todas as cartas da pilha | `pilha_t *` | `void`
-| descrição da carta (2) | `carta_t`, `char *` | `void`
 | esvazia uma pilha | `pilha_t *` | `void`
 | gera baralho inteiro (3) | `pilha_t *` | `void`
 | embaralha as cartas em uma pilha | `pilha_t *` | `void`
+| retorna o número de cartas em uma pilha | `pilha_t *` | `int`
+| retorna o número de cartas fechadas em uma pilha | `pilha_t *` | `int`
+| retorna o número de cartas abertas em uma pilha | `pilha_t *` | `int`
+| retorna uma carta da pilha (4) | `pilha_t *`, `int`, `bool *` | `carta_t`
+| cria uma carta | `valor_t`, `naipe_t` | `carta_t`
+| retorna o naipe de uma carta | `carta_t` | `naipe_t`
+| retorna o valor de uma carta | `carta_t` | `valor_t`
+| retorna a cor de uma carta | `carta_t` | `cor_t`
+| descrição de uma carta (2) | `carta_t`, `char *` | `void`
+| compara duas cartas (`true` se iguais) | `carta_t`, `carta_t` | `bool`
 
-(1) o inteiro é o número de cartas a mover. Elas são movidar do topo da pilha de origem para o topo da pilha de destino. As cartas passadas devem ficar abertas na pilha de destino, mesmo que estejam fechadas na pilha de origem. As cartas devem permanecer na mesma ordem: a carta que estava no topo na pilha de origem deve ficar no topo na pilha de destino. Deve testar e abortar (com assert) se há cartas suficientes na origem e espaço no destino.
+(1) o inteiro é o número de cartas a mover. Elas são movidas do topo da pilha de origem para o topo da pilha de destino. As cartas passadas devem ficar abertas na pilha de destino, mesmo que estejam fechadas na pilha de origem. As cartas devem permanecer na mesma ordem: a carta que estava no topo na pilha de origem deve ficar no topo na pilha de destino. Deve testar e abortar (com assert) se há cartas suficientes na origem e espaço no destino.
 
 (2) o vetor de char apontado deve ser preenchido com uma string com a descrição da carta (como o que é escrito pela função desenha_carta do exemplo).
 
 (3) esvazia a pilha e insere nela as 52 cartas do baralho, em qualquer ordem.
+
+(4) o inteiro é a posição da carta a retornar: com `n` cartas na pilha, a posição `0` é a da primeira carta da pilha (a que está embaixo de todas), `1` é da que está acima dela, `n-1` a da que está no topo; além disso, `-1` é a da que está no topo, `-2` a da que está abaixo dela, `-n` a da primeira. No ponteiro para `bool` deve ser colocado `true` se a carta estiver aberta e `false` se estiver fechada (a não ser que o ponteiro seja NULL, nesse caso deve ser ignorado). Deve usar `assert` para abortar com posição inválida.
+
+(5) se a pilha estiver vazia, a carta deve ser colocada aberta; senão a carta deve ficar da mesma forma que a carta que está no topo da pilha (aberta ou fechada).
+
+**Somente as funções da parte I podem acessar diretamente os campos das estruturas `carta_t` e `pilha_t`. As funções das demais partes devem usar as funções da parte I.**
 
 ### parte II
 
@@ -80,11 +96,17 @@ As funções que movem cartas de uma pilha do jogo devem mover somente cartas ab
 | move de uma pilha do jogo para uma saída | `jogo_t *`, `int`, `int` | `bool`
 | move de uma saída para uma pilha do jogo | `jogo_t *`, `int`, `int` | `bool`
 | move tantas cartas de uma pilha do jogo para outra | `jogo_t *`, `int`, `int`, `int` | `bool`
+| move cartas de uma pilha do jogo para outra (3) | `jogo_t *`, `int`, `int` | `bool`
+| faz uma jogada (4) | `jogo_t *`, `char *` | `bool`
 
 
 (1) move a carta do topo do monte para o topo do descarte, aberta. A jogada não é possível se o monte estiver vazio.
 
 (2) move todas as cartas do descarte para o monte, em ordem inversa (a do topo do descarte deve ficar no fundo do monte). As cartas do monte devem ficar fechadas. A jogada não é possível se o descarte tiver vazio ou se o monte não tiver vazio.
+
+(3) a função deve descobrir quantas cartas devem ser movidas para que a jogada seja válida, a chamar a função anterior para realizar o movimento.
+
+(4) chama uma das funções anteriores dependendo da string recebida (e retorna o valor retornado pela função). A string deve conter 2 caracteres (ou excepcionalmente 1), que identificam as 2 pilhas envolvidas na jogada. Se a string não estiver corretamente formatada ou se não corresponder a uma jogada válida, a função deve retornar `false`. As pilhas são identificadas pelos caracteres `m`, `p`, `a`-`d` e `1`-`7`, em maiúsculas ou minúsculas. Por exemplo, a string "5c" deve causar a chamada da função que move de uma pilha do jogo para uma saída, com argumentos 4 e 2. A string "m" deve ser tratada da mesma forma que "mp" e chamar a função que abre uma carta do monte para a pilha de descarte.
 
 ### parte IV
 
