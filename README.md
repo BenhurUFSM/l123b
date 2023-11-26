@@ -90,8 +90,8 @@ Os assuntos vistos em aula serão listados aqui.
 |   23 |   9nov | [Exercícios (*struct, enum*)](Aulas/23.md)
 |   24 |  14nov | Exercícios
 |   25 |  16nov | Exercícios
-|   26 |  21nov |
-|   27 |  23nov |
+|   26 |  21nov | [Alocação dinâmica de memória](Aulas/26.md)
+|   27 |  23nov | Exercícios
 |   28 |  27nov | **Atenção, esta segunda tem aulas de quinta**
 |   -- |  28nov | **Atenção, esta terça tem aulas de sexta**
 |   29 |  30nov |
