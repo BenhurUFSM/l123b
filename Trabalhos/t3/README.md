@@ -194,9 +194,34 @@ Altere `jogo_t` para conter um vetor onde será colocada a string com o comando 
 
 Fim de partida.
 
+Deve ser mantido o registro de todas as pontuações feitas no jogo.
+Esse registro deve ser mantido em um arquivo, em ordem crescente.
+Como não se sabe quantas partidas serão jogadas, em memória esses dados serão mantidos em um vetor alocado dinamicamente.
+Esse vetor deve ser inicializado a partir do arquivo no início do programa.
+No final de uma partida, se ela foi terminada com vitória, o programa deve inserir a nova pontuação no vetor e regravar o arquivo.
+A pontuação deve ser apresentada em uma tela final da partida, com a pontuação obtida no meio da tela, tantos valores anteriores quantos couberem (ou existirem) nas linhas anteriores e tantos valores posteriores quantos couberem (ou existirem) nas linhas posteriores. Cada valor precedido por sua posição no arquivo, o valor da última partida em destaque.
+
+Por exemplo, a última partida obteve 511 pontos, ficando em 15° lugar, mostrado em uma tela de 5 linhas:
+```
+      13. 499
+      14. 507
+     >15. 511<
+      16. 590
+      17. 656
+```
+
+A primeira linha do arquivo contém o número de pontuações que o arquivo contém, seguido de uma pontuação por linha.
+
+Em memória, as pontuações devem ser mantidas em uma estrutura que contém um inteiro com o número de pontuações e um ponteiro para uma região de memória alocada dinâmicamente, com as pontuações.
+
+Para inserir uma nova pontuação, aloque uma região de memória onde caibam todas as pontuações anteriores mais a nova, copie as primeiras pontuações (as menores que a que está sendo inserida) da região antiga para a região nova, depois a pontuação nova, depois as pontuações restantes (que são maiores que a nova). Então, libere a memória antiga e atualize o ponteiro na estrutura para apontar para a nova região.
+
+Esta parte é opcional.
+
 ### parte IX
 
 Faça um programa para jogar klondike.
+O programa deve usar as funções das partes anteriores.
 
 
 ## Respostas a perguntas
