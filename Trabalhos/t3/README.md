@@ -197,3 +197,77 @@ Fim de partida.
 ### parte IX
 
 Faça um programa para jogar klondike.
+
+
+## Respostas a perguntas
+
+1. São geradas as 52 cartas em uma pilha só né, após isso é para embaralhar as 52 e só depois dividir entre as pilhas? Essas cartas são geradas na função "cria uma carta" ou ela serve para outra coisa?
+  
+   Tá misturando um monte de coisas. Tem uma função que preenche uma pilha com as 52 cartas. Essa função serve para colocar as 52 cartas em uma pilha, que ela recebe por argumento. Um programa pode fazer isso:
+   ```c
+   pilha_t p;
+   // aqui não sei o que tem em p
+   preenche_com_baralho_completo(&p);   // ou outro nome para a função que põe as 52 cartas
+   // aqui sei que tem as 52 cartas em p
+   ```
+   Tem outra função que embaralha as cartas que estão em uma pilha que ela recebe por argumento. Por exemplo:
+   ```c
+   pilha_t p;
+   esvazia_pilha(&p);
+   empilha(&p, cria_carta(as, ouros));
+   empilha(&p, cria_carta(3, copas));
+   empilha(&p, cria_carta(rei, ouros));
+   imprime_pilha(&p);  // deve aparecer as de ouros, 3 de copas e rei de ouros, nessa ordem
+   embaralha(&p);
+   imprime_pilha(&p);  // deve aparecer as de ouros, 3 de copas e rei de ouros, sei lá em que ordem
+   ```
+   Na parte II, essas funções vão ser usadas para inicializar as pilhas do jogo, mas na parte I, é só para implementar e testar as funções separadamente. O fato de na parte II elas serem usadas em um caso específico não muda o que elas devem fazer. A função que embaralha pode ser usada em um jogo de pife ou canastra, e nem saber disso...
+
+1. As funções “diz se uma pilha está vazia” e “diz se uma pilha está cheia” usam o typedef pilha_t incialmente, porém, essas funções levariam em consideração as pilhas destino e origem apenas ou levaria em consideração as pilhas do jogo também? (que possuem 7 cartas) Se levar em consideração as pilhas do jogo eu devo incluir no pilha_t todas as pilhas ou criar separado um para as de “compra” e outra para as de jogo?
+
+   O tipo `pilha_t` é usado para representar uma pilha de cartas. Qualquer pilha de cartas. No jogo, vão ser usadas 13 dessas pilhas para representar o estado do jogo. Em algum momento, talvez se precise saber se alguma dessas pilhas está cheia ou vazia. Nesse caso, essas funções serão chamadas, passando como argumento um ponteiro para a pilha que se quer saber se está cheia ou vazia. A função deve retornar true ou false se a pilha está vazia ou não, independentemente de qual pilha tenha sido passada para ela. O trecho abaixo deve imprimir "sim nao nao nao ":
+   ```c
+   pilha_t p;
+   esvazia_pilha(&p);
+   if (pilha_vazia(&p)) printf("sim "); else printf("nao ");
+   if (pilha_cheia(&p)) printf("sim "); else printf("nao ");
+   empilha(&p, cria_carta(as, ouros));
+   if (pilha_vazia(&p)) printf("sim "); else printf("nao ");
+   if (pilha_cheia(&p)) printf("sim "); else printf("nao ");
+   ```
+   
+1. As descrição da função “empilha uma carta” diz sobre a carta permanecer fechada, não entendi muito bem como funciona essa função, seria apenas para abrir as cartas de origem para a destino? Acredito que isso seja a função de “move cartas entre pilhas”... Então iria checar se a carta pode ser empilhada em qualquer pilha??? Mas isso também esta na parte II então ...?
+
+   A função "empilha uma carta" recebe um ponteiro para uma pilha e uma carta. A pilha deve ser alterada para conter, além das cartas que já tinha, essa nova carta, empilhada sobre as outras. Se a pilha estava vazia, essa passa a ser a única carta na pilha e deve ser registrada como estando aberta. Se a pilha não estava vazia, tinha pelo menos uma carta. A carta no topo da pilha estava aberta ou fechada. A nova carta, que é colocada sobre a carta do topo deve ficar aberta se a carta que estava no topo estava aberta e fechada se ela estava fechada. Por exemplo:
+   ```c
+   pilha_t p;
+   esvazia_pilha(&p);  // agora não tem carta em p
+   empilha(&p, cria_carta(as, ouros)); // agora tem um as de ouros (aberto) em p
+   empilha(&p, cria_carta(3, copas)); // agora tem um as de ouros e um 3 de copas (ambos abertos) em p
+   fecha_todas(&p); // agora tem um as de ouros e um 3 de copas (ambos fechados) em p
+   abre_topo(&p); // agora tem um as de ouros (fechado) e um 3 de copas (aberto) em p
+   empilha(&p, cria_carta(rei, ouros)); // agora tem um as de ouros (fechado), um 3 de copas (aberto) e um rei (aberto) em p
+   ```
+
+1. A função “fecha todas as cartas da pilha” é usada em que momento do jogo Quando as cartas da pilha de destino voltam para a origem? E ai entra a função “esvazia uma pilha"?
+
+   A função de fechar as cartas pode ser usada no monte, do início de um jogo, nas pilhas de jogo, também no início, logo depois da distribuição. No início também tem que esvaziar as demais pilhas.
+
+1. Para que serve a função "compara duas cartas"?
+
+   No jogo, para nada.
+
+   Mas para testar as funções, pode ser bastante útil:
+   ```c
+   pilha_t p;
+   esvazia_pilha(&p);
+   carta_t c1 =  cria_carta(as, ouros);
+   carta_t c2 =  cria_carta(rei, ouros);
+   empilha(&p, c2);
+   empilha(&p, c2);
+   empilha(&p, c1);
+   assert(iguais(remove_topo(&p), c1)); 
+   assert(iguais(remove_topo(&p), c2));
+   assert(iguais(remove_topo(&p), c2));
+   assert(pilha_vazia(&p));
+   ```
