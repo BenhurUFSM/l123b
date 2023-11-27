@@ -106,7 +106,7 @@ As funções que movem cartas de uma pilha do jogo devem mover somente cartas ab
 
 (3) a função deve descobrir quantas cartas devem ser movidas para que a jogada seja válida, a chamar a função anterior para realizar o movimento.
 
-(4) chama uma das funções anteriores dependendo da string recebida (e retorna o valor retornado pela função). A string deve conter 2 caracteres (ou excepcionalmente 1), que identificam as 2 pilhas envolvidas na jogada. Se a string não estiver corretamente formatada ou se não corresponder a uma jogada válida, a função deve retornar `false`. As pilhas são identificadas pelos caracteres `m`, `p`, `a`-`d` e `1`-`7`, em maiúsculas ou minúsculas. Por exemplo, a string "5c" deve causar a chamada da função que move de uma pilha do jogo para uma saída, com argumentos 4 e 2. A string "m" deve ser tratada da mesma forma que "mp" e chamar a função que abre uma carta do monte para a pilha de descarte.
+(4) chama uma das funções anteriores dependendo da string recebida (e retorna o valor retornado pela função). A string deve conter 2 caracteres (ou excepcionalmente 1), que identificam as 2 pilhas envolvidas na jogada. Se a string não estiver corretamente formatada ou se não corresponder a uma jogada válida, a função deve retornar `false`. As pilhas são identificadas pelos caracteres `m`, `p`, `a`-`d` e `1`-`7`, em maiúsculas ou minúsculas. Por exemplo, a string "5c" deve causar a chamada da função que move de uma pilha do jogo para uma saída, com argumentos 4 e 2. A string "m" deve ser tratada da mesma forma que "mp" e chamar a função que abre uma carta do monte para a pilha de descarte. A jogada pode ainda ser "f", que finaliza o jogo (coloque uma variável em jogo_t para sinalizar que o jogo deve ser terminado).
 
 ### parte IV
 
@@ -121,18 +121,20 @@ Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coor
 | :--- | :--- | :---
 | desenho de local (1) | `int`, `int` | `void`
 | desenho de carta fechada | `int`, `int` | `void`
-| desenho de carta aberta | `int`, `int`, `carta_t` | `void`
+| desenho de carta aberta (5) | `int`, `int`, `carta_t` | `void`
 | desenho de pilha fechada (2) | `int`, `int`, `pilha_t *` | `void`
 | desenho de pilha aberta (3) | `int`, `int`, `pilha_t *` | `void`
 | desenho compacto de pilha aberta (4) | `int`, `int`, `pilha_t *` | `void`
 
 (1) os 2 inteiros são linha e coluna na tela onde o desenho deve iniciar. Faz um desenho que representa um local onde uma carta pode ser posicionada.
 
-(2) Desenha somente a carta que está no topo da pilha, levando em consideração que a pilha pode estar vazia e a carta pode estar aberta ou fechada. Deve usar uma das funções anteriores para desenhar.
+(2) Desenha somente a carta que está no topo da pilha, levando em consideração que a pilha pode estar vazia e a carta pode estar aberta ou fechada. **Deve usar uma das 3 funções de desenho anteriores para desenhar**.
 
-(3) Deve desenhar cada carta da pilha, a primeira carta na posição recebida, e cada carta seguinte em uma posição um pouco abaixo, parcialmente sobre a anterior, de forma que se consiga distinguir cada carta. A última carta desenhada é a carta do topo da pilha. Deve ser levado em consideração as cartas fechadas e abertas, e a possibilidade de a pilha estar vazia. Deve usar as funções anteriores para desenhar.
+(3) Deve desenhar cada carta da pilha, a primeira carta na posição recebida, e cada carta seguinte em uma posição um pouco abaixo, parcialmente sobre a anterior, de forma que se consiga distinguir cada carta. A última carta desenhada é a carta do topo da pilha. Deve ser levado em consideração as cartas fechadas e abertas, e a possibilidade de a pilha estar vazia. **Deve usar as funções anteriores para desenhar (local, carta fechada, carta aberta)**.
 
 (4) Desenha a pilha de forma alternativa, ocupando menos espaço vertical. Por exemplo, pode desenhar uma só carta fechada com um número dentro indicando quantas tem, e a primeira e a última cartas abertas, com uma carta especial entre elas indicando o número de cartas abertas que não estão sendo representadas.
+
+(5) A obtenção da descrição da carta a imprimir deve ser obtida usando a função da parte I.
 
 ### parte V
 
