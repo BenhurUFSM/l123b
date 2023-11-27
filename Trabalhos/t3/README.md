@@ -134,7 +134,7 @@ Os 2 inteiros que todas as funcões recebem são linha e coluna na tela (ou coor
 
 (4) Desenha a pilha de forma alternativa, ocupando menos espaço vertical. Por exemplo, pode desenhar uma só carta fechada com um número dentro indicando quantas tem, e a primeira e a última cartas abertas, com uma carta especial entre elas indicando o número de cartas abertas que não estão sendo representadas.
 
-(5) A obtenção da descrição da carta a imprimir deve ser obtida usando a função da parte I.
+(5) A descrição da carta a imprimir deve ser obtida usando a função da parte I que fornece a descrição de uma carta.
 
 ### parte V
 
