@@ -38,7 +38,8 @@ void processa_entrada_pelo_teclado(jogo_t *jogo)
       break;
     default:
       if (nchar < MAX_CHAR_CMD) {
-        jogo->comando[nchar] = tecla;
+        jogo->comando[nchar++] = tecla;
+        jogo->comando[nchar] = '\0';
       }
       break;
   }
