@@ -92,7 +92,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   25 |  16nov | Exercícios
 |   26 |  21nov | [Alocação dinâmica de memória](Aulas/26.md)
 |   27 |  23nov | Exercícios
-|   28 |  27nov | **Atenção, esta segunda tem aulas de quinta**
+|   28 |  27nov | Exercícios **Atenção, esta segunda tem aulas de quinta**
 |   -- |  28nov | **Atenção, esta terça tem aulas de sexta**
 |   29 |  30nov |
 |   -- |   5dez | **Atenção, esta terça tem aulas de sexta**
@@ -114,4 +114,5 @@ Os assuntos vistos em aula serão listados aqui.
 |    T1 | 3out,12h  | [digitação de números](Trabalhos/t1)
 |    T2 | 16nov,12h | [digitação de letras](Trabalhos/t2)
 |    T3 |  | [klondike](Trabalhos/t3)
+| final | 6dez ou 10dez | [entrega final](final.md)
 
