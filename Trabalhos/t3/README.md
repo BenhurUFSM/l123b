@@ -298,3 +298,7 @@ O programa deve usar as funções das partes anteriores.
    assert(iguais(remove_topo(&p), c2));
    assert(pilha_vazia(&p));
    ```
+
+1. Pode ter mais ajuda?
+
+   Foi incluído um arquivo com exemplos de teste para a parte I.
