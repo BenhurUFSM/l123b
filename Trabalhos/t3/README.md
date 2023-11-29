@@ -87,17 +87,17 @@ Funções que implementam as jogadas possíveis do jogo. Retornam `true` se a jo
 As funções das partes anteriores **devem** ser usadas na implementação destas funções.
 As funções que movem cartas de uma pilha do jogo devem mover somente cartas abertas, e fazer com que a carta no topo da pilha esteja aberta após o movimento.
 
-| funcionalidade            | argumentos            | retorno
-| :--- | :--- | :---
-| abre uma carta (1) | `jogo_t *` | `bool`
-| recicla o descarte (2) | `jogo_t *` | `bool`
-| move do descarte para uma saída | `jogo_t *`, `int` | `bool`
-| move do descarte para uma pilha do jogo | `jogo_t *`, `int` | `bool`
-| move de uma pilha do jogo para uma saída | `jogo_t *`, `int`, `int` | `bool`
-| move de uma saída para uma pilha do jogo | `jogo_t *`, `int`, `int` | `bool`
-| move tantas cartas de uma pilha do jogo para outra | `jogo_t *`, `int`, `int`, `int` | `bool`
-| move cartas de uma pilha do jogo para outra (3) | `jogo_t *`, `int`, `int` | `bool`
-| faz uma jogada (4) | `jogo_t *`, `char *` | `bool`
+| funcionalidade            | argumentos            | retorno | jogada
+| :--- | :--- | :--- | :---
+| abre uma carta (1) | `jogo_t *` | `bool` | `mp` ou `m`
+| recicla o descarte (2) | `jogo_t *` | `bool` | `pm` ou `p`
+| move do descarte para uma saída | `jogo_t *`, `int` | `bool` | `pa` a `pd`
+| move do descarte para uma pilha do jogo | `jogo_t *`, `int` | `bool` | `p1` a `p7`
+| move de uma pilha do jogo para uma saída | `jogo_t *`, `int`, `int` | `bool` | `1a` a `7d`
+| move de uma saída para uma pilha do jogo | `jogo_t *`, `int`, `int` | `bool` | `a1` a `d7`
+| move tantas cartas de uma pilha do jogo para outra | `jogo_t *`, `int`, `int`, `int` | `bool` | função auxiliar
+| move cartas de uma pilha do jogo para outra (3) | `jogo_t *`, `int`, `int` | `bool` | `17` a `71`
+| faz uma jogada (4) | `jogo_t *`, `char *` | `bool` | função de entrada
 
 
 (1) move a carta do topo do monte para o topo do descarte, aberta. A jogada não é possível se o monte estiver vazio.
