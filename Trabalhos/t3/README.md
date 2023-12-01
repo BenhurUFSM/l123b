@@ -302,3 +302,24 @@ O programa deve usar as funções das partes anteriores.
 1. Pode ter mais ajuda?
 
    Foi incluído um arquivo com exemplos de teste para a parte I.
+
+1. Não entendi o que seria testar quantas precisa mover para que a jogada seja válida, pode me explicar melhor?
+
+   Por exemplo, suponha que:
+   - a pilha 1 está vazia
+   - a pilha 2 tem 1 carta fechada e um Kp, Qv
+   - a pilha 3 tem 2 cartas fechadas e Jp, 10v, 9p
+   - a pilha 4 tem 2 cartas fechadas e 9p, 8v, 7p, 6v
+   - a pilha 5 tem 8p, 7v
+   - as outras não sei o que tem
+
+   Algumas jogadas possíveis:
+   - se a jogada for "21", tem que mover 2 cartas para que a jogada seja válida.
+   - se a jogada for "31", não tem jogada válida.
+   - se a jogada for "32", tem que mover 3 cartas para que seja válida.
+   - se a jogada for "43", tem que mover 3 cartas para que seja válida.
+   - nenhuma outra jogada é válida entre as pilhas 1 e 5.
+
+   Se a função "move cartas de uma pilha do jogo para outra" for chamada com os argumentos 3 e 2, para mover cartas da pilha 3 para a pilha 2, ela deve chamar a função "move tantas cartas de uma pilha do jogo para outra" com os argumentos 3, 2 e 3, para mover, da pilha 3 para a pilha 2, 3 cartas.
+
+   Para descobrir quantas cartas mover, ela pode analisar o que tem nas pilhas, ou pode chamar "move tantas cartas de uma pilha do jogo para outra" com 3,2,1, depois com 3,2,2 etc, até que dê true ou que não seja possível movimentar tantas cartas, coisa que a função pode descobrir chamando "verifica se pode mover tantas cartas de uma pilha de jogo".
