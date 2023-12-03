@@ -323,3 +323,16 @@ O programa deve usar as funções das partes anteriores.
    Se a função "move cartas de uma pilha do jogo para outra" for chamada com os argumentos 3 e 2, para mover cartas da pilha 3 para a pilha 2, ela deve chamar a função "move tantas cartas de uma pilha do jogo para outra" com os argumentos 3, 2 e 3, para mover, da pilha 3 para a pilha 2, 3 cartas.
 
    Para descobrir quantas cartas mover, ela pode analisar o que tem nas pilhas, ou pode chamar "move tantas cartas de uma pilha do jogo para outra" com 3,2,1, depois com 3,2,2 etc, até que dê true ou que não seja possível movimentar tantas cartas, coisa que a função pode descobrir chamando "verifica se pode mover tantas cartas de uma pilha de jogo".
+
+1. Não entendi a parte 3 do trabalho, o que são aquelas jogadas?
+
+   As funções da parte III são as funções que implementam as jogadas que são possíveis no jogo.
+Uma jogada move cartas de uma pilha para outra.
+São 7 tipos de jogadas permitidas, de acordo com a pilha origem e a pilha destino da jogada.
+Tem uma função para cada uma dessas possíveis jogadas.
+A jogada mais complicada é a que move cartas de uma para outra das pilhas centrais do jogo. Para essa jogada, tem 2 funções. A primeira a ser executada recebe como argumento a pilha de origem e a pilha de destino; ela verifica quantas cartas devem ser movidas e chama a função auxiliar para mover as cartas.
+
+   Tem também uma função geral, que serve para selecionar qual das outras funções vai ser chamada, dependendo de uma string que ela recebe, que identifica a pilha de origem e a pilha de destino. É essa a função que vai ser chamada quando o jogador fizer uma jogada. A forma do jogador jogar é digitando 2 caracteres, que identificam a pilha origem e a pilha destino. Esses caracteres são colocados em uma string que é passada para essa função "faz uma jogada". 
+
+   A coluna "jogada" da tabela identifica o que tem que ter na string de comando para que a função "faz uma jogada" deva chamar a função que está nessa linha da tabela. Se a string for recebida por "faz uma jogada" for "mp", a função "faz uma jogada" deve chamar a função "abre uma carta"; se a string for "c6", deve chamar "move de uma saída para uma pilha do jogo", com argumentos 2 e 5 (da pilha de saída 2 (as pilhas abcd têm os números 0123, como posições de um vetor) para a pilha do jogo 5 (as pilhas 1234567 têm números 0123456)).
+
