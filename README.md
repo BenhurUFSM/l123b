@@ -96,10 +96,10 @@ Os assuntos vistos em aula serão listados aqui.
 |   -- |  28nov | **Atenção, esta terça tem aulas de sexta**
 |   29 |  30nov |
 |   -- |   5dez | **Atenção, esta terça tem aulas de sexta**
-|   30 |   7dez |
-|   -- |  12dez | **Atenção, esta terça tem aulas de sábado**
-|      |  14dez | final
-|      |  19dez | final
+|   30 |   7dez | apresentações/conversas
+|   -- |  12dez | apresentações/conversas **Atenção, esta terça tem aulas de sábado**
+|      |  14dez | 
+|      |  19dez | exame
 
 
 ## Exercícios, trabalhos, provas
