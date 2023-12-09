@@ -336,3 +336,32 @@ A jogada mais complicada é a que move cartas de uma para outra das pilhas centr
 
    A coluna "jogada" da tabela identifica o que tem que ter na string de comando para que a função "faz uma jogada" deva chamar a função que está nessa linha da tabela. Se a string for recebida por "faz uma jogada" for "mp", a função "faz uma jogada" deve chamar a função "abre uma carta"; se a string for "c6", deve chamar "move de uma saída para uma pilha do jogo", com argumentos 2 e 5 (da pilha de saída 2 (as pilhas abcd têm os números 0123, como posições de um vetor) para a pilha do jogo 5 (as pilhas 1234567 têm números 0123456)).
 
+1. Poderia me explicar a função faz uma jogada na parte 3 do trabalho, eu não consegui entender bem a explicação que está no github
+
+   O jogo tem 13 pilhas:
+   - o monte de cartas;
+   - a pilha de descarte;
+   - 4 pilhas de saída;
+   - 7 pilhas de jogo.
+
+   As jogadas possíveis no jogo sempre movimentam uma ou mais cartas entre uma pilha de origem e uma pilha de saída. Para cada jogada possível, foi definida uma função na parte 3. São 7 possibilidades, correspondendo a 7 funções. Essas funções retornam um valor booleano, que indica se a jogada foi realizada ou não. Uma jogada não é realizada se o estado do jogo naquele momento não possibilita que a jogada seja feita sem infringir as regras do jogo.
+
+   Para fazer uma jogada (o que deve causar a execução de uma dessas funções), o jogador deve identificar qual a pilha origem e qual a pilha destino. Cada uma das pilhas é identificada por um caractere diferente, então uma jogada pode ser codificada por 2 caracteres, o primeiro para representar a pilha de origem e o segundo para identificar a pilha de destino. Uma jogada é então representada por uma string que contém 2 caracteres.
+
+   A função que lê um comando do jogador chama a função "faz uma jogada", passando para ela como argumento uma string que representa a jogada pretendida. A função "faz uma jogada" deve analisar essa string e chamar a função que realiza a jogada pretendida, com os argumentos requeridos. A função "faz uma jogada" deve retornar um bool que informa se a jogada foi realizada ou não (que é o valor retornado pela função que ela chamou para realizar a jogada ou false, se a string recebida não corresponde a uma jogada válida).
+
+   Os caracteres usados para identificar as pilhas são:
+   - 'm' ou 'M' - o monte de cartas
+   - 'p' ou 'P' - a pilha de descartes
+   - 'a' ou 'A' - a primeira pilha de saída
+   - 'b', 'c', 'd' ou 'B', 'C', 'D' - as outras 3 pilhas de saída
+   - '1' a '7' - as 7 pilhas de jogo
+
+   Se a string recebida pela função "faz uma jogada" for "mp", significa que o jogador quer mover cartas, tendo como origem a pilha 'm' (o monte) e como destino a pilha 'p' (a pilha de descartes). Essa jogada é realizada pela função "abre uma carta". A função "faz uma jogada" deve então chamar a função "abre uma carta", e retornar o valor retornado por ela para quem a chamou.
+
+   Se a string recebida pela função "faz uma jogada" for "5B", significa que o jogador quer mover cartas, tendo como origem a pilha '5' (a quinta pilha de jogo) e como destino a pilha 'b' (a segunda pilha de saída). Essa jogada é realizada pela função "move de uma pilha do jogo para uma saída". A função "faz uma jogada" deve então chamar a função "move de uma pilha do jogo para uma saída", passando para ela os valores 4 (a quinta pilha do jogo é a pilha de número 4) e 1 (a segunda pilha de saída é a de número 1) e retornar o valor retornado por ela para quem a chamou.
+
+   Além das jogadas representadas por 2 caracteres, tem 3 jogadas que são representadas por uma string de um só caractere:
+   - "m" ou "M": o mesmo que a jogada representada por "mp"
+   - "p" ou "P": o mesmo que a jogada representada por "pm"
+   - "f" ou "F": uma jogada especial, significa que o jogador quer abandonar a partida
